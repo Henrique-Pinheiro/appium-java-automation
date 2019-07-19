@@ -1,4 +1,4 @@
-package io.cucumber.skeleton;
+package io.cucumber.skeleton.Steps;
 
 import cucumber.api.java.pt.Dado;
 import org.junit.Assert;
