@@ -1,23 +1,23 @@
 package io.cucumber.skeleton.pages.Android;
 
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidElement;
 import io.cucumber.skeleton.AppiumController;
-import io.cucumber.skeleton.Devices;
-import org.junit.After;
 
 import java.net.MalformedURLException;
 
 public class BaseAndroidPage {
 
-    public Devices device = new Devices();
-    private String deviceName = device.getDeviceName();
-
 //=========================ESPECIFICAR AQUI O NOME DO DEVICE QUE DEVE SER TESTADO==========================================================//
-    private static AppiumController appiumController = new AppiumController("samsung s8");
+    protected static String deviceName = "emulator";
+    public static String getDeviceName() {
+        return deviceName;
+    }
+    private static AppiumController appiumController = new AppiumController(deviceName);
 
-    @Before
+//============Remover as Tags por enquanto dependendo de quem for rodar===========================//
+    //@Before
     public void beforeScenarioStart() {
         try {
             appiumController.startDriver();
@@ -27,11 +27,11 @@ public class BaseAndroidPage {
         }
     }
 
-    @After
+//============Remover as Tags por enquanto dependendo de quem for rodar===========================//
+//   @After
     public void afterScenarioFinish(){
         appiumController.stopDriver();
     }
-
 
     public String returnLabelText(){
         MobileElement appLbl = (MobileElement) appiumController.driver.findElementById("batata");

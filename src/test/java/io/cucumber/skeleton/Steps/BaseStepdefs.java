@@ -14,9 +14,6 @@ public class BaseStepdefs {
     public Devices devices = new Devices();
 //    public Object basePage;
 
-
-
-
     @Dado("que eu estou usando o aparelho {string}")
     public void queEuEstouUsandoOAparelho(String device) {
         deviceName = device;
@@ -33,7 +30,7 @@ public class BaseStepdefs {
                 Assert.assertEquals(texto, baseAndroidPage.returnLabelText());
                 break;
             case "ios":
-                //Assert.assertEquals(texto, baseIosPage.returnLabelText());
+                Assert.assertEquals(texto, baseIosPage.returnLabelText());
                 break;
         }
     }
@@ -45,7 +42,7 @@ public class BaseStepdefs {
                 baseAndroidPage.clickButton();
                 break;
             case "ios":
-                //baseAndroidPage.clickButton();
+                baseIosPage.clickButton();
                 break;
         }
     }
