@@ -4,13 +4,18 @@ import cucumber.api.java.Before;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidElement;
 import io.cucumber.skeleton.AppiumController;
+import io.cucumber.skeleton.Devices;
 import org.junit.After;
 
 import java.net.MalformedURLException;
 
 public class BaseAndroidPage {
 
-    private static AppiumController appiumController = new AppiumController("android");
+    public Devices device = new Devices();
+    private String deviceName = device.getDeviceName();
+
+//=========================ESPECIFICAR AQUI O NOME DO DEVICE QUE DEVE SER TESTADO==========================================================//
+    private static AppiumController appiumController = new AppiumController("samsung s8");
 
     @Before
     public void beforeScenarioStart() {

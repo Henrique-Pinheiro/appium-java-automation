@@ -16,26 +16,21 @@ public class AppiumController {
     public static AppiumDriver driver;
     public static WebDriverWait wait;
     public static String platformName;
+    public static String deviceName;
+    public Devices devices = new Devices();
 
-    public AppiumController(String platformName){
-        this.platformName = platformName;
+    public AppiumController(String deviceName){
+        this.deviceName = deviceName;
     }
 
     public void startDriver() throws MalformedURLException {
-
         URL appiumURL = new URL("http://localhost:4723/wd/hub");
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("platformName", platformName);
-        capabilities.setCapability("platformVersion", "8.1");
-        capabilities.setCapability("deviceName", "emulator-5554");
-        capabilities.setCapability("appPackage", "com.example.myapplication");
-        capabilities.setCapability("appActivity", ".MainActivity");
-        //capabilities.setCapability("app", "");
+        DesiredCapabilities capabilities = devices.returnCaps(deviceName);
+        platformName = (String) capabilities.getCapability("platformName");
         switch (platformName.toLowerCase()){
             default:
             case "android":
                 driver = new AndroidDriver(appiumURL, capabilities);
-                System.out.println("Batata");
                 break;
             case "ios":
                 driver = new IOSDriver(appiumURL, capabilities);
