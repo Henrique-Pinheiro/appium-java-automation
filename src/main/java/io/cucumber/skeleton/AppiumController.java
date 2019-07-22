@@ -15,7 +15,11 @@ public class AppiumController {
 
     public static AppiumDriver driver;
     public static WebDriverWait wait;
-    public static String platformName = "android";
+    public static String platformName;
+
+    public AppiumController(String platformName){
+        this.platformName = platformName;
+    }
 
     public void startDriver() throws MalformedURLException {
 
