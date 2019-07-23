@@ -41,9 +41,9 @@ public class Devices {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         String platformName = returnDeviceOs(deviceName);
         capabilities.setCapability("platformName", platformName);
-        capabilities.setCapability("appPackage", "com.example.myapplication");
-        capabilities.setCapability("appActivity", ".MainActivity");
-        //capabilities.setCapability("app", "");
+        //capabilities.setCapability("appPackage", "com.example.myapplication");
+        //capabilities.setCapability("appActivity", ".MainActivity");
+        capabilities.setCapability("app", "/Users/t1409hnr/Desktop/System-Testing/cucumber-java-skeleton/app-dev-homolog.apk");
         switch (deviceName.toLowerCase()){
             case "emulator":
                 capabilities.setCapability("platformVersion", "8.1");

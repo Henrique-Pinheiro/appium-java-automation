@@ -9,15 +9,17 @@ import java.net.MalformedURLException;
 
 public class BaseAndroidPage {
 
-//=========================ESPECIFICAR AQUI O NOME DO DEVICE QUE DEVE SER TESTADO==========================================================//
-    protected static String deviceName = "emulator";
+    //=========================ESPECIFICAR AQUI O NOME DO DEVICE QUE DEVE SER TESTADO==========================================================//
+    protected static String deviceName = "samsung s8";
+
     public static String getDeviceName() {
         return deviceName;
     }
-    private static AppiumController appiumController = new AppiumController(deviceName);
 
-//============Remover as Tags por enquanto dependendo de quem for rodar===========================//
-    //@Before
+    public static AppiumController appiumController = new AppiumController(deviceName);
+
+    //============Remover as Tags por enquanto dependendo de quem for rodar===========================//
+    @Before
     public void beforeScenarioStart() {
         try {
             appiumController.startDriver();
@@ -27,20 +29,43 @@ public class BaseAndroidPage {
         }
     }
 
-//============Remover as Tags por enquanto dependendo de quem for rodar===========================//
-//   @After
-    public void afterScenarioFinish(){
+    //============Remover as Tags por enquanto dependendo de quem for rodar===========================//
+    @After
+    public void afterScenarioFinish() {
         appiumController.stopDriver();
     }
 
-    public String returnLabelText(){
-        MobileElement appLbl = (MobileElement) appiumController.driver.findElementById("batata");
-        String lblText = appLbl.getText();
-        return lblText;
+//    MobileElement appLbl = (MobileElement) appiumController.driver.findElementById("batata");
+//    String lblText = appLbl.getText();
+//        return lblText;
+
+    public boolean checkLoginPage() {
+        MobileElement btnJump = (MobileElement) appiumController.driver.findElementById("btnJump");
+        if(btnJump.isDisplayed()){
+            btnJump.click();
+        }
+        MobileElement txtLoginLabel = (MobileElement) appiumController.driver.findElementById("textLoginLabel");
+        return txtLoginLabel.isDisplayed();
     }
 
-    public void clickButton(){
-        MobileElement btn = (MobileElement) appiumController.driver.findElementById("testButton");
-        btn.click();
+    public void fillFirstLogin(String emailEcOrCpf){
+        MobileElement firstTxtField = (MobileElement) appiumController.driver.findElementById("textInputEditNewLogin");
+        firstTxtField.setValue(emailEcOrCpf);
     }
+
+    public void clickBtnPoximo(){
+        MobileElement btnProximo = (MobileElement) appiumController.driver.findElementById("buttonLoginNext");
+        btnProximo.click();
+    }
+
+    public void fillUserAndPass(String user, String password){
+        MobileElement userField = (MobileElement) appiumController.driver.findElementById("textInputEditLoginUsername");
+        MobileElement passField = (MobileElement) appiumController.driver.findElementById("textInputEditLoginPassword");
+        userField.setValue(user);
+        passField.setValue(password);
+    }
+
+
+
+
 }

@@ -23,33 +23,9 @@ public class BaseStepdefs {
     public BaseIosPage baseIosPage = new BaseIosPage();
     public BaseAndroidPage baseAndroidPage = new BaseAndroidPage();
 
-    @Dado("que eu estou na tela do {string}")
-    public void queEuEstouNaTelaDo(String texto) {
-        switch (deviceOs){
-            case "android":
-                Assert.assertEquals(texto, baseAndroidPage.returnLabelText());
-                break;
-            case "ios":
-                Assert.assertEquals(texto, baseIosPage.returnLabelText());
-                break;
-        }
-    }
 
-    @Quando("eu clicar no botão")
-    public void euClicarNoBotão() {
-        switch (deviceOs){
-            case "android":
-                baseAndroidPage.clickButton();
-                break;
-            case "ios":
-                baseIosPage.clickButton();
-                break;
-        }
+    @Dado("que eu estou na tela de Login")
+    public void queEuEstouNaTelaDeLogin() {
+        Assert.assertTrue("A pagina de login não está sendo exibida", baseAndroidPage.checkLoginPage());
     }
-
-    @Então("nada deve acontecer")
-    public void nadaDeveAcontecer() {
-        queEuEstouNaTelaDo("Hello World!");
-    }
-
 }

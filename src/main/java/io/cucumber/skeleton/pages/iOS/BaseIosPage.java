@@ -10,14 +10,16 @@ import java.net.MalformedURLException;
 
 public class BaseIosPage {
 
-//=========================ESPECIFICAR AQUI O NOME DO DEVICE QUE DEVE SER TESTADO==========================================================//
+    //=========================ESPECIFICAR AQUI O NOME DO DEVICE QUE DEVE SER TESTADO==========================================================//
     protected static String deviceName = "iemulator";
+
     public static String getDeviceName() {
         return deviceName;
     }
+
     private static AppiumController appiumController = new AppiumController(deviceName);
 
-//============Remover as Tags por enquanto dependendo de quem for rodar===========================//
+    //============Remover as Tags por enquanto dependendo de quem for rodar===========================//
     //@Before
     public void beforeScenarioStart() {
         try {
@@ -28,16 +30,10 @@ public class BaseIosPage {
         }
     }
 
-//============Remover as Tags por enquanto dependendo de quem for rodar===========================//
+    //============Remover as Tags por enquanto dependendo de quem for rodar===========================//
     //@After
-    public void afterScenarioFinish(){
+    public void afterScenarioFinish() {
         appiumController.stopDriver();
     }
 
-    public String returnLabelText(){
-        return "Hello World!";
-    }
-
-    public void clickButton(){
-    }
 }
