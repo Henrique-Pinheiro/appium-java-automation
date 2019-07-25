@@ -14,9 +14,9 @@ public class LoginSteps {
     private AndroidLoginPage androidLogin = new AndroidLoginPage();
     private AndroidHomePage androidHomePage = new AndroidHomePage();
 
-    @E("preencho o campo de Login com o EC {string}")
+    @E("preencho o campo de Login com {string}")
     public void preenchoOCampoDeLoginComOEC(String ec) {
-        baseAndroidPage.fillFirstLogin(ec);
+        baseAndroidPage.fillFirstLoginField(ec);
     }
 
     @Quando("eu selecionar o botão Proximo")
@@ -24,13 +24,35 @@ public class LoginSteps {
         baseAndroidPage.clickBtnPoximo();
     }
 
-    @E("preencher os campos usuário com {string} e senha com {string}")
-    public void preencherOsCamposUsuárioComESenhaCom(String user, String password) {
-        baseAndroidPage.fillUserAndPass(user, password);
+    @E("preencher o campo usuário com {string}")
+    public void preencherOCampoUsuárioCom(String user) {
+        baseAndroidPage.fillUser(user);
+    }
+
+    @E("o campo senha com {string}")
+    public void oCampoSenhaCom(String password) {
+        baseAndroidPage.fillPass(password);
     }
 
     @Então("ao pressionar o botão Entrar a tela Home deve ser exibida")
     public void aoPressionarOBotãoEntrarATelaHomeDeveSerExibida() {
+        baseAndroidPage.clickBtnLogin();
         Assert.assertTrue("A tela home não foi exibida", androidHomePage.checkHomePage());
+    }
+
+    @E("preencho o campo de Login com um email não cadastrado")
+    public void preenchoOCampoDeLoginComUmEmailNãoCadastrado() {
+        androidLogin.fillEmail();
+    }
+
+    @Então("ao pressionar o botão Entrar, a mensagem {string} deve ser exibida")
+    public void aMensagemDeveSerExibida(String msg) {
+        baseAndroidPage.clickBtnLogin();
+        Assert.assertEquals(msg, androidLogin.getErrorMsgTxt());
+    }
+
+    @E("preencho o campo de Login com um CPF não cadastrado")
+    public void preenchoOCampoDeLoginComUmCPFNãoCadastrado() {
+        androidLogin.fillCpf();
     }
 }
