@@ -39,13 +39,13 @@ public class LoginSteps {
     @Então("ao pressionar o botão Entrar a tela Home deve ser exibida")
     public void aoPressionarOBotãoEntrarATelaHomeDeveSerExibida() {
         baseAndroidPage.clickBtnLogin();
-//        boolean test;
-//        test = androidLogin.loginError();
-//        if(test){
-//            throw new RuntimeException("Não foi possivel logar no App devido a um erro no serviço");
-//        }else{
+       boolean test = androidLogin.loginError();
+        System.out.println(test);
+        if(test){
+            throw new RuntimeException("Não foi possivel logar no App devido a um erro no serviço");
+        }else{
         Assert.assertTrue("A tela home não foi exibida", androidHomePage.checkHomePage());
-//        }
+        }
     }
 
     @E("preencho o campo de Login com um email não cadastrado")
@@ -75,7 +75,7 @@ public class LoginSteps {
     }
 
     @Então("ao sair do App, os campos (.*), (.*), (.*) devem continuar preenchidos na Tela de Login")
-    public void aoSairDoAppOsCamposECUsuarioSenhaDevemContinuarPreenchidosNaTelaDeLogin(String ec, String user, String senha) {
+    public void aoSairDoAppOsCamposECUsuarioSenhaDevemContinuarPreenchidosNaTelaDeLogin(String ec, String user, String senha) throws InterruptedException {
         hbgMenu.sair();
     }
 }

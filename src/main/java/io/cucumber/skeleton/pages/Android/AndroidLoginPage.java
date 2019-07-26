@@ -3,6 +3,7 @@ package io.cucumber.skeleton.pages.Android;
 import com.github.javafaker.Faker;
 import io.appium.java_client.MobileElement;
 import io.cucumber.skeleton.Support.CpfGenerator;
+import org.openqa.selenium.WebDriverException;
 
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
@@ -14,6 +15,7 @@ public class AndroidLoginPage {
     private Faker faker = new Faker(new Locale("pt-BR"));
     private String email = faker.internet().emailAddress();
     private String cpf = CpfGenerator.generateCPF(true);
+    private AndroidHomePage homePage = new AndroidHomePage();
 
     public void fillEmail() {
         BaseAndroidPage.fillFirstLoginField(email);
@@ -26,20 +28,34 @@ public class AndroidLoginPage {
     }
 
     public void fillCpf() {
-        System.out.println(cpf);
         BaseAndroidPage.fillFirstLoginField(cpf);
     }
 
     //valida caso o serviço de Login esteja fora do Ar
     public boolean loginError() {
         appiumController.driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
-        if(!appiumController.driver.findElementsById("custom_dialog_message").isEmpty()){
-            MobileElement errorMsg = (MobileElement) appiumController.driver.findElementById("custom_dialog_message");
-            String errorMsgTxt = errorMsg.getText();
-            return errorMsgTxt.contains("erro");
-        }else{
-            return false;
+        boolean result;
+        try {
+            appiumController.driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+            MobileElement chatBtn = (MobileElement) appiumController.driver.findElementById("icon_chat");
+            result =  !(chatBtn.isDisplayed());
         }
+        catch (WebDriverException e) {
+            MobileElement errorMsg = (MobileElement) appiumController.driver.findElementById("custom_dialog_message");
+            errorMsg.isDisplayed();
+            String errorMsgTxt = errorMsg.getText();
+            result = errorMsgTxt.contains("erro");
+        }
+//        test = ;
+//        System.out.println(test);
+//        if(!test){
+//            MobileElement errorMsg = (MobileElement) appiumController.driver.findElementById("custom_dialog_message");
+//            String errorMsgTxt = errorMsg.getText();
+//            return errorMsgTxt.contains("erro");
+//        }else{
+//            return false;
+//        }
+        return result;
     }
 
     public void checkSalvarDados() {

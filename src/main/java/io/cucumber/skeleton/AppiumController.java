@@ -15,7 +15,7 @@ public class AppiumController {
 
     public static AppiumDriver driver;
     public static WebDriverWait wait;
-    public  String platformName;
+    public String platformName;
     public String deviceName;
 
     public AppiumController(String deviceName){

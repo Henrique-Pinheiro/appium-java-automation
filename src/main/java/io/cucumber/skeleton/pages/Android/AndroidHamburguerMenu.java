@@ -1,22 +1,24 @@
 package io.cucumber.skeleton.pages.Android;
 
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.TouchAction;
+import io.cucumber.skeleton.Support.Swipper;
+
+import java.util.concurrent.TimeUnit;
 
 import static io.cucumber.skeleton.pages.Android.BaseAndroidPage.appiumController;
 
 public class AndroidHamburguerMenu {
 
+    private Swipper swipper = new Swipper();
     MobileElement hbgMenuBtn = (MobileElement) appiumController.driver.findElementByAccessibilityId("Open navigation drawer");
-    TouchAction touchAction;
 
-    public void sair() {
+    public void sair() throws InterruptedException {
         hbgMenuBtn.click();
-        MobileElement hbgMenu = (MobileElement) appiumController.driver.findElementById("nav_view");
-        hbgMenu.sendKeys("e2adbe");
-        //310 1285 e 310 952
-        //MobileElement btnSair = (MobileElement) appiumController.driver.findElementsByAccessibilityId("textview_menu_sair");
-        //btnSair.click();
+        swipper.verticalSwipe("content_menu_logado");
+        appiumController.driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+        MobileElement btnSair = (MobileElement) appiumController.driver.findElementById("textview_menu_sair");
+        btnSair.click();
+
 
     }
 }

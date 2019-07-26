@@ -35,10 +35,6 @@ public class BaseAndroidPage {
         appiumController.stopDriver();
     }
 
-//    MobileElement appLbl = (MobileElement) appiumController.driver.findElementById("batata");
-//    String lblText = appLbl.getText();
-//        return lblText;
-
     public static boolean checkLoginPage() {
         MobileElement btnJump = (MobileElement) appiumController.driver.findElementById("btnJump");
         if (btnJump.isDisplayed()) {
