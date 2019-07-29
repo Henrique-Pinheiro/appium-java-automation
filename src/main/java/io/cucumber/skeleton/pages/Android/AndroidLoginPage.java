@@ -62,4 +62,15 @@ public class AndroidLoginPage {
         MobileElement checkBoxSaveUserData = (MobileElement) appiumController.driver.findElementById("checkBoxSaveUserData");
         checkBoxSaveUserData.click();
     }
+
+    public String getECSalvo() {
+        MobileElement ecField = (MobileElement) appiumController.driver.findElementById("textInputEditNewLogin");
+        return ecField.getText();
+    }
+
+    public String getUserSalvo() {
+        MobileElement userField = (MobileElement) appiumController.driver.findElementById("textInputEditLoginUsername");
+        return userField.getText();
+
+    }
 }
