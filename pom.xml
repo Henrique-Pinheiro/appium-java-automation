@@ -21,14 +21,14 @@
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
             <version>${cucumber.version}</version>
-<!--            <scope>test</scope>-->
+            <!--            <scope>test</scope>-->
         </dependency>
 
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit</artifactId>
             <version>${cucumber.version}</version>
-<!--            <scope>test</scope>-->
+            <!--            <scope>test</scope>-->
         </dependency>
         <dependency>
             <groupId>net.masterthought</groupId>
@@ -38,8 +38,13 @@
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
-            <version>6.0.0</version>
-<!--            <scope>test</scope>-->
+            <version>6.1.0</version>
+            <!--            <scope>test</scope>-->
+        </dependency>
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 
@@ -55,40 +60,41 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
-                <plugin>
-                    <groupId>net.masterthought</groupId>
-                    <artifactId>maven-cucumber-reporting</artifactId>
-                    <version>${report.version}</version>
-                    <executions>
-                        <execution>
-                            <id>execution</id>
-                            <phase>verify</phase>
-                            <goals>
-                                <goal>generate</goal>
-                            </goals>
-                            <configuration>
-                                <projectName>Cucumber-Java Skeleton</projectName>
-                                <!-- output directory for the generated report -->
-                                <outputDirectory>${project.build.directory}</outputDirectory>
-                                <!-- optional, defaults to outputDirectory if not specified -->
-                                <inputDirectory>${project.build.directory}/jsonReports</inputDirectory>
-                                <jsonFiles>
-                                    <!-- supports wildcard or name pattern -->
-                                    <param>**/*.json</param>
-                                </jsonFiles>
-                                <!-- optional, defaults to outputDirectory if not specified -->
-                                <classificationDirectory>${project.build.directory}/classifications</classificationDirectory>
-                                <classificationFiles>
-                                    <!-- supports wildcard or name pattern -->
-                                    <param>sample.properties</param>
-                                    <param>other.properties</param>
-                                </classificationFiles>
-<!--                                <parallelTesting>false</parallelTesting>-->
-                                <!-- optional, set true to fail build on test failures -->
-                                <checkBuildResult>false</checkBuildResult>
-                            </configuration>
-                        </execution>
-                    </executions>
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>${report.version}</version>
+                <executions>
+                    <execution>
+                        <id>execution</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>Cucumber-Java Skeleton</projectName>
+                            <!-- output directory for the generated report -->
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <!-- optional, defaults to outputDirectory if not specified -->
+                            <inputDirectory>${project.build.directory}/jsonReports</inputDirectory>
+                            <jsonFiles>
+                                <!-- supports wildcard or name pattern -->
+                                <param>**/*.json</param>
+                            </jsonFiles>
+                            <!-- optional, defaults to outputDirectory if not specified -->
+                            <classificationDirectory>${project.build.directory}/classifications
+                            </classificationDirectory>
+                            <classificationFiles>
+                                <!-- supports wildcard or name pattern -->
+                                <param>sample.properties</param>
+                                <param>other.properties</param>
+                            </classificationFiles>
+                            <!--                                <parallelTesting>false</parallelTesting>-->
+                            <!-- optional, set true to fail build on test failures -->
+                            <checkBuildResult>false</checkBuildResult>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

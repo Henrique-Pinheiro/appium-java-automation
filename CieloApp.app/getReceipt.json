@@ -1,0 +1,166 @@
+{
+    "helpText":"texto ajuda",
+    "grouped":true,
+    "groupedPostings":[
+                       {
+                       "date":"01/01/2017",
+                       "paymentDate":"",
+                       "postings":[
+                                   {
+                                   "id":123,
+                                   "title":"Resumo de Operação - 236578",
+                                   "date":"08/06/2017",
+                                   "postingsQty":1,
+                                   "cvsQty":1,
+                                   "valorTotal":"R$ 900,00",
+                                   "hasDescriptionDetails":true,
+                                   "uniquekeyROPart1":171855320001157,
+                                   "uniquekeyROPart2":110001,
+                                   "productName":"Banescard",
+                                   "brand":"Banescard Débito",
+                                   "anticipationDate":"10/11/2017",
+                                   "details":[
+                                              {
+                                              "key":"Bandeira",
+                                              "value":"ELO"
+                                              },
+                                              {
+                                              "key":"Produto",
+                                              "value":"ELO débito"
+                                              },
+                                              {
+                                              "key":"Valor bruto dos lançamentos",
+                                              "value":"R$ 800,00"
+                                              },
+                                              {
+                                              "key":"Valor líquido dos lançamentos",
+                                              "value":"R$ 700,00"
+                                              }
+                                              ]
+                                   },
+                                   {
+                                   "id":641,
+                                   "title":"Data da venda: 23/06/2017 - 1 lançamento",
+                                   "date":"23/06/2017",
+                                   "postingsQty":1,
+                                   "cvsQty":1,
+                                   "hasDescriptionDetails":true,
+                                   "uniquekeyROPart1":171855320000035,
+                                   "uniquekeyROPart2":110001,
+                                   "productName":"Banescard",
+                                   "brand":"Banescard Débito",
+                                   "details":[
+                                              {
+                                              "key":"Bandeira",
+                                              "value":"CABAL"
+                                              },
+                                              {
+                                              "key":"Produto",
+                                              "value":"PRODUTOS"
+                                              },
+                                              {
+                                              "key":"Valor bruto dos lançamentos",
+                                              "value":"R$ 4.000,00"
+                                              },
+                                              {
+                                              "key":"Valor líquido dos lançamentos",
+                                              "value":"R$ 3.872,40"
+                                              }
+                                              ]
+                                   },
+                                   {
+                                   "id":621,
+                                   "title":"Data da venda: 04/07/2017 - 2 lançamentos",
+                                   "date":"04/07/2017",
+                                   "postingsQty":2,
+                                   "cvsQty":2,
+                                   "hasDescriptionDetails":true,
+                                   "uniquekeyROPart1":171855090000076,
+                                   "uniquekeyROPart2":0,
+                                   "productName":"Banescard",
+                                   "brand":"Banescard Débito",
+                                   "details":[
+                                              {
+                                              "key":"Bandeira",
+                                              "value":"ELO"
+                                              },
+                                              {
+                                              "key":"Produto",
+                                              "value":"ELO débito"
+                                              }
+                                              ]
+                                   }
+                                   ]
+                       },
+                       {
+                       "date":"05/01/2017",
+                       "postings":[
+                                   {
+                                   "id":651,
+                                   "title":"Data da venda: 04/07/2017 - 1 lançamento",
+                                   "date":"04/07/2017",
+                                   "postingsQty":1,
+                                   "cvsQty":1,
+                                   "hasDescriptionDetails":true,
+                                   "uniquekeyROPart1":171855090000075,
+                                   "uniquekeyROPart2":0,
+                                   "productName":"Banescard",
+                                   "brand":"Banescard Débito",
+                                   "details":[
+                                              {
+                                              "key":"Bandeira",
+                                              "value":"ELO"
+                                              },
+                                              {
+                                              "key":"Produto",
+                                              "value":"ELO débito"
+                                              },
+                                              {
+                                              "key":"Valor bruto dos lançamentos",
+                                              "value":"R$ 800,00"
+                                              },
+                                              {
+                                              "key":"Valor líquido dos lançamentos",
+                                              "value":"R$ 700,00"
+                                              }
+                                              ]
+                                   },
+                                   {
+                                   "id":640,
+                                   "title":"Data da venda: 04/07/2017 - 6 lançamentos",
+                                   "date":"04/07/2017",
+                                   "postingsQty":6,
+                                   "cvsQty":6,
+                                   "hasDescriptionDetails":true,
+                                   "uniquekeyROPart1":171855090000074,
+                                   "uniquekeyROPart2":0,
+                                   "productName":"Banescard",
+                                   "brand":"Banescard Débito",
+                                   "details":[
+                                              {
+                                              "key":"Bandeira",
+                                              "value":"CABAL"
+                                              },
+                                              {
+                                              "key":"Produto",
+                                              "value":"PRODUTOS"
+                                              },
+                                              {
+                                              "key":"Valor bruto dos lançamentos",
+                                              "value":"R$ 1.821.111,00"
+                                              },
+                                              {
+                                              "key":"Valor líquido dos lançamentos",
+                                              "value":"R$ 1.763.017,50"
+                                              }
+                                              ]
+                                   }
+                                   ]
+                       }
+                       ],
+    "pagination":{
+        "pageNumber":1,
+        "pageSize":20,
+        "numPages":3
+    }
+}

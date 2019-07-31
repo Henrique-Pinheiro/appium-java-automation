@@ -1,0 +1,55 @@
+{
+    "transactions": [
+                     {
+                     "time": "19:15",
+                     "description": "Credito à vista",
+                     "amount": "R$ 6.400,00",
+                     "status": "Aprovada",
+                     "statusCode": "AP"
+                     },
+                     {
+                     "time": "18:10",
+                     "description": "Crédito parcelado em 2x",
+                     "amount": "R$ 1.399,00",
+                     "status": "Cancelada",
+                     "statusCode: ": "CA"
+                     },
+                     {
+                     "time": "17:45",
+                     "description": "Voucher",
+                     "amount": "R$ 1.400,00",
+                     "status": "Aprovada",
+                     "statusCode": "AP"
+                     },
+                     {
+                     "time": "17:30",
+                     "description": "Voucher",
+                     "amount": "R$ 200,00",
+                     "status": "Desfeita",
+                     "statusCode": "DE"
+                     },
+                     {
+                     "time": "16:00",
+                     "description": "Credito à vista",
+                     "amount": "R$ 1.000,00",
+                     "status": "Aprovada",
+                     "statusCode": "AP"
+                     },
+                     {
+                     "time": "15:50",
+                     "description": "Crédito parcelado em 5x",
+                     "amount": "R$ 400,00",
+                     "status": "Negada",
+                     "statusCode": "NE"
+                     },
+                     {
+                     "time": "10:05",
+                     "description": "Débito",
+                     "amount": "R$ 2.400,00",
+                     "status": "Aprovada",
+                     "statusCode": "AP"
+                     }
+                     ],
+    "quantity": 7,
+    "totalAmount": "R$ 10.400,00"
+}

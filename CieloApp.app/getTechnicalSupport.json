@@ -1,0 +1,207 @@
+{
+    "support":[
+               {
+               "categoryName":"Problemas com equipamentos",
+               "isActive":true,
+               "created_at":"2017-12-22T17:22:47.582Z",
+               "problems":[
+                           {
+                           "name":"Minha máquina não liga ou está desligando",
+                           "id_problem":null,
+                           "_id":"5a3d3f67c7650d000f169248",
+                           "solutions":[
+                                        {
+                                        "name":"Máquina Móvel",
+                                        "id_solution":"maquinaNaoLigaMovel",
+                                        "_id":"5a3d3f67c7650d000f16924a"
+                                        },
+                                        {
+                                        "name":"Máquina Fixa",
+                                        "id_solution":"maquinaNaoLigaFixa",
+                                        "_id":"5a3d3f67c7650d000f169249"
+                                        }
+                                        ]
+                           },
+                           {
+                           "name":"Minha máquina está lenta",
+                           "id_problem":"maquinaEstaLenta",
+                           "_id":"5a3d3f67c7650d000f169247",
+                           "solutions":[
+                           
+                           ]
+                           },
+                           {
+                           "name":"Teste na máquina",
+                           "id_problem":null,
+                           "_id":"5a3d3f67c7650d000f169242",
+                           "solutions":[
+                                        {
+                                        "name":"Leitor",
+                                        "id_solution":"testeMaquinaLeitor",
+                                        "_id":"5a3d3f67c7650d000f169246"
+                                        },
+                                        {
+                                        "name":"Visor",
+                                        "id_solution":"testeMaquinaVisor",
+                                        "_id":"5a3d3f67c7650d000f169245"
+                                        },
+                                        {
+                                        "name":"Teclado",
+                                        "id_solution":"testeMaquinaTeclado",
+                                        "_id":"5a3d3f67c7650d000f169244"
+                                        },
+                                        {
+                                        "name":"Impressão",
+                                        "id_solution":"testeMaquinaImpressao",
+                                        "_id":"5a3d3f67c7650d000f169243"
+                                        }
+                                        ]
+                           }
+                           ],
+               "__v":0
+               },
+               {
+               "categoryName":"Mensagem no visor",
+               "problems":[
+                           {
+                           "name":"Tente de novo",
+                           "id_problem":null,
+                           "solutions":[
+                                        {
+                                        "name":"Máquina Móvel",
+                                        "id_solution":"msgVisorTenteDeNovoMovel"
+                                        },
+                                        {
+                                        "name":"Máquina Fixa",
+                                        "id_solution":"msgVisorTenteDeNovoFixa"
+                                        }
+                                        ]
+                           },
+                           {
+                           "name":"Minha máquina está lenta",
+                           "id_problem":"maquinaEstaLenta",
+                           "solutions":[
+                           
+                           ]
+                           },
+                           {
+                           "name":"Inicialize POS",
+                           "id_problem":"msgInicializePOS",
+                           "solutions":[
+                           
+                           ]
+                           },
+                           {
+                           "name":"Terminal travado - A máquina responde aos meus comandos",
+                           "id_problem":"msgTerminalTravado",
+                           "solutions":[
+                           
+                           ]
+                           },
+                           {
+                           "name":"Não lembro da mensagem",
+                           "id_problem":null,
+                           "solutions":[
+                                        {
+                                        "name":"Máquina móvel",
+                                        "id_solution":"msgNaoLembroMensagemMovel"
+                                        },
+                                        {
+                                        "name":"Máquina Fixa",
+                                        "id_solution":"msgNaoLembroMensagemFixa"
+                                        }
+                                        ]
+                           }
+                           ]
+               },
+               {
+               "categoryName":"Funcionalidades",
+               "problems":[
+                           {
+                           "name":"Cadastrar a senha da máquina",
+                           "id_problem":null,
+                           "solutions":[
+                                        {
+                                        "name":"Senha do operador",
+                                        "id_solution":"funcionalidadeCadastrarSenhaOperador"
+                                        },
+                                        {
+                                        "name":"Senha do supervisor",
+                                        "id_solution":"funcionalidadeCadastrarSenhaSupervisor"
+                                        }
+                                        ]
+                           },
+                           {
+                           "name":"Pré-autorizações",
+                           "id_problem":null,
+                           "solutions":[
+                                        {
+                                        "name":"Fazer uma pré-autorização",
+                                        "id_solution":"funcionalidadeFazerPreAutorizacao"
+                                        },
+                                        {
+                                        "name":"Cancelar uma pré-autorização",
+                                        "id_solution":"funcionalidadeCancelarPreAutorizacao"
+                                        }
+                                        ]
+                           },
+                           {
+                           "name":"Cancelar uma venda",
+                           "id_problem":null,
+                           "solutions":[
+                                        {
+                                        "name":"Realizada no último dia",
+                                        "id_solution":"funcionalidadeCancelarUmaVendaUltimoDia"
+                                        },
+                                        {
+                                        "name":"Vendas anteriores",
+                                        "id_solution":"funcionalidadeCancelarUmaVendaVendasAnteriores"
+                                        }
+                                        ]
+                           }
+                           ]
+               },
+               {
+               "categoryName":"Impressão",
+               "problems":[
+                           {
+                           "name":"Impressão de relatórios de vendas",
+                           "id_problem":"ImpressaoRelatorioVendas",
+                           "solutions":[
+                           
+                           ]
+                           },
+                           {
+                           "name":"Agendar a impressão de relatórios",
+                           "id_problem":"ImpressaoAgendarImpressaoRelatorios",
+                           "solutions":[
+                           
+                           ]
+                           },
+                           {
+                           "name":"Como cancelar o agendamento da impressão dos relatórios",
+                           "id_problem":"ImpressaoCancelarAgendamentoImpressao",
+                           "solutions":[
+                           
+                           ]
+                           },
+                           {
+                           "name":"Reimprimir comprovante de vendas",
+                           "id_problem":"ImpressaoReimprimirComprovante",
+                           "solutions":[
+                           
+                           ]
+                           },
+                           {
+                           "name":"Minha impressora não funciona",
+                           "id_problem":"ImpressaoImpressoraNaoFunciona",
+                           "solutions":[
+                           
+                           ]
+                           }
+                           ]
+               }
+               ],
+    "code":200,
+    "success":true
+}

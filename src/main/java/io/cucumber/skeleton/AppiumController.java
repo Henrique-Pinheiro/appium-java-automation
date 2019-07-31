@@ -15,19 +15,20 @@ public class AppiumController {
 
     public static AppiumDriver driver;
     public static WebDriverWait wait;
-    public static String platformName;
-    public static String deviceName;
-    public Devices devices = new Devices();
+    public String platformName;
+    public String deviceName;
 
     public AppiumController(String deviceName){
         this.deviceName = deviceName;
     }
 
     public void startDriver() throws MalformedURLException {
+        Devices devices = new Devices();
         URL appiumURL = new URL("http://localhost:4723/wd/hub");
         DesiredCapabilities capabilities = devices.returnCaps(deviceName);
         platformName = (String) capabilities.getCapability("platformName");
-        switch (platformName.toLowerCase()){
+//        platformName = "android";
+                switch (platformName.toLowerCase()){
             default:
             case "android":
                 driver = new AndroidDriver(appiumURL, capabilities);
@@ -46,8 +47,8 @@ public class AppiumController {
     }
 
     public void setDefaultTimeOut() {
-        wait = new WebDriverWait(driver, 60); //seta timeout default
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        wait = new WebDriverWait(driver, 30); //seta timeout default
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
 
