@@ -73,4 +73,9 @@ public class AndroidLoginPage {
         return userField.getText();
 
     }
+
+    public void touchAutoCadastro() {
+        MobileElement btnAutoCadastro = (MobileElement) appiumController.driver.findElementById("headerButtonViewCreateUser");
+        btnAutoCadastro.click();
+    }
 }

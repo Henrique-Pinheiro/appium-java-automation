@@ -1,6 +1,6 @@
 #language: pt
 
-Funcionalidade: Login
+Funcionalidade: Login no App Cielo
 
   Contexto:
     Dado que eu estou usando o aparelho "Emulator"

@@ -1,6 +1,5 @@
 package io.cucumber.skeleton.Steps;
 import cucumber.api.java.pt.Dado;
-import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
 import io.cucumber.skeleton.Devices;
 import io.cucumber.skeleton.pages.Android.BaseAndroidPage;
@@ -27,5 +26,10 @@ public class BaseStepdefs {
     @Dado("que eu estou na tela de Login")
     public void queEuEstouNaTelaDeLogin() {
         Assert.assertTrue("A pagina de login não está sendo exibida", baseAndroidPage.checkLoginPage());
+    }
+
+    @Quando("eu estiver na tela de Login")
+    public void euEstiverNaTelaDeLogin() {
+        queEuEstouNaTelaDeLogin();
     }
 }
