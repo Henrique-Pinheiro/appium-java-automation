@@ -47,21 +47,24 @@ public class AutoCadastroSteps {
     }
 
     @E("selecionar o botão De acordo")
-    public void selecionarOBotãoDeAcordo() {
-
+    public void selecionarOBotãoDeAcordo() throws InterruptedException {
+        androidCadastro.deAcordo();
     }
 
     @E("selecionar o botão Confirmar")
     public void selecionarOBotãoConfirmar() {
-
+        androidCadastro.pressBtnConfirmar();
     }
 
     @Então("eu devo informar o nome de usuário desejado")
     public void euDevoInformarONomeDeUsuárioDesejado() {
+        androidCadastro.preencherUsuario();
     }
 
-    @E("a tela de confirmação de email deve ser exibida")
-    public void aTelaDeConfirmaçãoDeEmailDeveSerExibida() {
-        
+
+    @E("ao pressionar o botão Ok a tela de confirmação de email deve ser exibida")
+    public void aoPressionarOBotãoContinuarATelaDeConfirmaçãoDeEmailDeveSerExibida() {
+        androidCadastro.pressBtnOk();
+        androidCadastro.verificaTelaEmail();
     }
 }

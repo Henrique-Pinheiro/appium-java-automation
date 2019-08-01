@@ -14,7 +14,8 @@ public class AndroidHamburguerMenu {
 
     public void sair() throws InterruptedException {
         hbgMenuBtn.click();
-        swipper.verticalSwipe("content_menu_logado");
+        MobileElement hbgMenu = (MobileElement) appiumController.driver.findElementByAccessibilityId("content_menu_logado");
+        swipper.verticalSwipe(hbgMenu);
         appiumController.driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
         MobileElement btnSair = (MobileElement) appiumController.driver.findElementById("textview_menu_sair");
         btnSair.click();

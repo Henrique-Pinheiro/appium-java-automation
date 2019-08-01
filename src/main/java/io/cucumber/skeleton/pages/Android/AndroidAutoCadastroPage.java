@@ -61,7 +61,9 @@ public class AndroidAutoCadastroPage {
     }
 
     public void preencherDadosBancarios(String tipoPessoa, String banco, String tipoConta, String agencia, String nConta, String digitoConta) throws InterruptedException {
-        swipper.verticalSwipe("layout_scroll_view");
+        //A scroll view é o componente aonde estao esses dados, sempre que precisar descer a tela, tem que usar o swipper nela
+        MobileElement scrollView = (MobileElement) appiumController.driver.findElementById("layout_scroll_view");
+        swipper.verticalSwipe(scrollView);
         MobileElement txtEc = (MobileElement) appiumController.driver.findElementById("edit_text_stablishment");
         MobileElement btnBancaria = (MobileElement) appiumController.driver.findElementById("button_dados_bancario");
         MobileElement btnFisica = (MobileElement) appiumController.driver.findElementById("button_account_fisica");
@@ -73,19 +75,67 @@ public class AndroidAutoCadastroPage {
         } else {
             btnJuridica.click();
         }
-        swipper.verticalSwipe("layout_scroll_view");
-        MobileElement spinnerBanco = (MobileElement) appiumController.driver.findElementById("spinner_esqueci_senha_banco");
-        MobileElement spinnerTipoConta = (MobileElement) appiumController.driver.findElementById("spinner_esqueci_minha_conta");
-        spinnerBanco.click();
-        MobileElement listViewBanco = (MobileElement) appiumController.driver.findElementById("select_dialog_listview");
-        
+        swipper.verticalSwipe(scrollView);
+        MobileElement openSpinnerBanco = (MobileElement) appiumController.driver.findElementById("spinner_esqueci_senha_banco");
+        MobileElement openSpinnerTipoConta = (MobileElement) appiumController.driver.findElementById("spinner_esqueci_minha_conta");
+        openSpinnerBanco.click();
+        MobileElement spinnerBancoBody = (MobileElement) appiumController.driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView");
+        String txtBanco = "";
+        int cont = 1;
+        MobileElement elementoBanco = null;
+        do {
+            try{
+                elementoBanco = (MobileElement) appiumController.driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[" + cont + "]");
+                cont++;
+                txtBanco = elementoBanco.getText();
+            } catch (Exception e) {
+                swipper.verticalSwipe(spinnerBancoBody);
+                cont = 1;
+            }
+        } while (!(txtBanco.contains(banco.toLowerCase())));
+        elementoBanco.click();
+        openSpinnerTipoConta.click();
+        if (tipoConta.toLowerCase().equals("cc")){
+            MobileElement btnTipoConta = (MobileElement) appiumController.driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[2]");
+            btnTipoConta.click();
+        }else{
+            MobileElement btnTipoConta = (MobileElement) appiumController.driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[3]");
+            btnTipoConta.click();
+        }
+        MobileElement txtAgencia = (MobileElement) appiumController.driver.findElementById("edit_text_esqueci_senha_agencia");
+        MobileElement txtConta = (MobileElement) appiumController.driver.findElementById("edit_text_esqueci_senha_numero_conta");
+        MobileElement txtDigito = (MobileElement) appiumController.driver.findElementById("edit_text_esqueci_senha_digito_conta");
+        txtAgencia.setValue(agencia);
+        txtConta.setValue(nConta);
+        txtDigito.setValue(digitoConta);
+    }
 
 
-    //Tem que descer
-//    MobileElement txtAgencia = (MobileElement) appiumController.driver.findElementById("textToolbarMainTitle");
-//    MobileElement txtConta = (MobileElement) appiumController.driver.findElementById("textToolbarMainTitle");
-//    MobileElement txtNConta = (MobileElement) appiumController.driver.findElementById("textToolbarMainTitle");
-//    MobileElement txtDigito = (MobileElement) appiumController.driver.findElementById("textToolbarMainTitle");
-//    MobileElement checkDeAcordo = (MobileElement) appiumController.driver.findElementById("textToolbarMainTitle");
-//    MobileElement btnConfirmar = (MobileElement) appiumController.driver.findElementById("textToolbarMainTitle");
+    public void deAcordo() throws InterruptedException {
+        MobileElement scrollView = (MobileElement) appiumController.driver.findElementById("layout_scroll_view");
+        swipper.verticalSwipe(scrollView);
+        MobileElement checkDeAcordo = (MobileElement) appiumController.driver.findElementById("checkBoxConfirmTerms");
+        checkDeAcordo.click();
+    }
+
+    public void pressBtnConfirmar() {
+        MobileElement btnConfirmar = (MobileElement) appiumController.driver.findElementById("buttonConfirm");
+        btnConfirmar.click();
+    }
+
+    public void preencherUsuario() {
+        appiumController.driver.hideKeyboard();
+        MobileElement txtUsuario = (MobileElement) appiumController.driver.findElementById("edit_text_user");
+        txtUsuario.setValue("cielomult");
+    }
+
+    public void pressBtnOk() {
+        appiumController.driver.hideKeyboard();
+        MobileElement btnOk = (MobileElement) appiumController.driver.findElementById("btn_welcome_ok");
+        btnOk.click();
+    }
+
+    public void verificaTelaEmail() {
+
+    }
 }
