@@ -32,4 +32,9 @@ public class BaseStepdefs {
     public void euEstiverNaTelaDeLogin() {
         queEuEstouNaTelaDeLogin();
     }
+
+    @Quando("esse step vai falhar")
+    public void esseStepVaiFalhar() {
+        Assert.assertEquals("batata", "mandioca");
+    }
 }
