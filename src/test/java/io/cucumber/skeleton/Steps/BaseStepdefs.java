@@ -1,7 +1,7 @@
 package io.cucumber.skeleton.Steps;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Quando;
-import io.cucumber.skeleton.Devices;
+import io.cucumber.skeleton.Support.Devices;
 import io.cucumber.skeleton.pages.Android.BaseAndroidPage;
 import io.cucumber.skeleton.pages.iOS.BaseIosPage;
 import org.junit.Assert;

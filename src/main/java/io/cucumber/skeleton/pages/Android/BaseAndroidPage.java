@@ -1,39 +1,38 @@
 package io.cucumber.skeleton.pages.Android;
 
-import cucumber.api.java.Before;
 import io.appium.java_client.MobileElement;
-import io.cucumber.skeleton.AppiumController;
-import org.junit.After;
 
-import java.net.MalformedURLException;
+import static io.cucumber.skeleton.Support.AppiumStarter.appiumController;
 
 public class BaseAndroidPage {
 
-    //=========================ESPECIFICAR AQUI O NOME DO DEVICE QUE DEVE SER TESTADO==========================================================//
-    protected static String deviceName = "emulator";
+//    //=========================ESPECIFICAR AQUI O NOME DO DEVICE QUE DEVE SER TESTADO==========================================================//
+//    protected static String deviceName = "emulator";
+//
+//    public static String getDeviceName() {
+//        return deviceName;
+//    }
+//
+//    public static AppiumController appiumController = new AppiumController(deviceName);
+//
+//    //============Remover as Tags por enquanto dependendo de quem for rodar===========================//
+//    @Before
+//    public void beforeScenarioStart() {
+//        try {
+//            appiumController.startDriver();
+//        } catch (MalformedURLException e) {
+//            System.out.println("Deu ruim no Appium");
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    //============Remover as Tags por enquanto dependendo de quem for rodar===========================//
+//    @After
+//    public void afterScenarioFinish() {
+//        appiumController.stopDriver();
+//    }
 
-    public static String getDeviceName() {
-        return deviceName;
-    }
 
-    public static AppiumController appiumController = new AppiumController(deviceName);
-
-    //============Remover as Tags por enquanto dependendo de quem for rodar===========================//
-    @Before
-    public void beforeScenarioStart() {
-        try {
-            appiumController.startDriver();
-        } catch (MalformedURLException e) {
-            System.out.println("Deu ruim no Appium");
-            e.printStackTrace();
-        }
-    }
-
-    //============Remover as Tags por enquanto dependendo de quem for rodar===========================//
-    @After
-    public void afterScenarioFinish() {
-        appiumController.stopDriver();
-    }
 
     public static boolean checkLoginPage() {
         MobileElement btnJump = (MobileElement) appiumController.driver.findElementById("btnJump");

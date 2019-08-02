@@ -1,4 +1,4 @@
-package io.cucumber.skeleton;
+package io.cucumber.skeleton.Support;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 

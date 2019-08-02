@@ -4,7 +4,7 @@ import io.appium.java_client.MobileElement;
 
 import java.util.concurrent.TimeUnit;
 
-import static io.cucumber.skeleton.pages.Android.BaseAndroidPage.appiumController;
+import static io.cucumber.skeleton.Support.AppiumStarter.appiumController;
 
 public class AndroidHomePage {
 

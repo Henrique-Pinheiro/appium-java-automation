@@ -8,8 +8,8 @@ import io.cucumber.skeleton.Support.Swipper;
 
 import java.util.Locale;
 
+import static io.cucumber.skeleton.Support.AppiumStarter.appiumController;
 import static io.cucumber.skeleton.Support.StringUtils.unaccent;
-import static io.cucumber.skeleton.pages.Android.BaseAndroidPage.appiumController;
 
 public class AndroidAutoCadastroPage {
 
