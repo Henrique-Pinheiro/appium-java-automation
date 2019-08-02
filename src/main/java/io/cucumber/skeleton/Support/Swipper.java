@@ -7,7 +7,8 @@ import org.openqa.selenium.interactions.Sequence;
 
 import java.time.Duration;
 import java.util.Arrays;
-import static io.cucumber.skeleton.pages.Android.BaseAndroidPage.appiumController;
+
+import static io.cucumber.skeleton.Support.AppiumStarter.appiumController;
 
 
 public class Swipper {

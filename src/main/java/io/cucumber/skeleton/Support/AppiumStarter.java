@@ -1,22 +1,27 @@
-package io.cucumber.skeleton.pages.iOS;
+package io.cucumber.skeleton.Support;
 
-import io.cucumber.skeleton.Support.AppiumController;
+import cucumber.api.java.Before;
+import org.junit.After;
 
 import java.net.MalformedURLException;
 
-public class BaseIosPage {
+public class AppiumStarter {
 
     //=========================ESPECIFICAR AQUI O NOME DO DEVICE QUE DEVE SER TESTADO==========================================================//
-    protected static String deviceName = "iemulator";
+    protected static String deviceName = "emulator";
 
     public static String getDeviceName() {
         return deviceName;
     }
 
-    private static AppiumController appiumController = new AppiumController(deviceName);
+    public static AppiumController appiumController;
+
+    public AppiumStarter(){
+        appiumController = new AppiumController(deviceName);
+    }
 
     //============Remover as Tags por enquanto dependendo de quem for rodar===========================//
-    //@Before
+    @Before
     public void beforeScenarioStart() {
         try {
             appiumController.startDriver();
@@ -27,9 +32,8 @@ public class BaseIosPage {
     }
 
     //============Remover as Tags por enquanto dependendo de quem for rodar===========================//
-    //@After
+    @After
     public void afterScenarioFinish() {
         appiumController.stopDriver();
     }
-
 }

@@ -1,4 +1,4 @@
-package io.cucumber.skeleton;
+package io.cucumber.skeleton.Support;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;

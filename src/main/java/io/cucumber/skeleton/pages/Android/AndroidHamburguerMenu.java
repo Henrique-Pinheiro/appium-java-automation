@@ -5,7 +5,7 @@ import io.cucumber.skeleton.Support.Swipper;
 
 import java.util.concurrent.TimeUnit;
 
-import static io.cucumber.skeleton.pages.Android.BaseAndroidPage.appiumController;
+import static io.cucumber.skeleton.Support.AppiumStarter.appiumController;
 
 public class AndroidHamburguerMenu {
 
