@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriverException;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
-import static io.cucumber.skeleton.Support.AppiumStarter.appiumController;
+import static io.cucumber.skeleton.pages.Android.BaseAndroidPage.appiumController;
 
 public class AndroidLoginPage {
 
@@ -22,7 +22,7 @@ public class AndroidLoginPage {
     }
 
 
-    public String getErrorMsgTxt(){
+    public String getErrorMsgTxt() {
         MobileElement errorMsg = (MobileElement) appiumController.driver.findElementById("custom_dialog_message");
         return errorMsg.getText();
     }
@@ -38,23 +38,14 @@ public class AndroidLoginPage {
         try {
             appiumController.driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
             MobileElement chatBtn = (MobileElement) appiumController.driver.findElementById("icon_chat");
-            result =  !(chatBtn.isDisplayed());
-        }
-        catch (WebDriverException e) {
+            result = !(chatBtn.isDisplayed());
+        } catch (WebDriverException e) {
+            result = false;
             MobileElement errorMsg = (MobileElement) appiumController.driver.findElementById("custom_dialog_message");
             errorMsg.isDisplayed();
             String errorMsgTxt = errorMsg.getText();
             result = errorMsgTxt.contains("erro");
         }
-//        test = ;
-//        System.out.println(test);
-//        if(!test){
-//            MobileElement errorMsg = (MobileElement) appiumController.driver.findElementById("custom_dialog_message");
-//            String errorMsgTxt = errorMsg.getText();
-//            return errorMsgTxt.contains("erro");
-//        }else{
-//            return false;
-//        }
         return result;
     }
 

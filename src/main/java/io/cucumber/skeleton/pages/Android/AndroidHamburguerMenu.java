@@ -5,7 +5,7 @@ import io.cucumber.skeleton.Support.Swipper;
 
 import java.util.concurrent.TimeUnit;
 
-import static io.cucumber.skeleton.Support.AppiumStarter.appiumController;
+import static io.cucumber.skeleton.pages.Android.BaseAndroidPage.appiumController;
 
 public class AndroidHamburguerMenu {
 
@@ -14,7 +14,7 @@ public class AndroidHamburguerMenu {
 
     public void sair() throws InterruptedException {
         hbgMenuBtn.click();
-        MobileElement hbgMenu = (MobileElement) appiumController.driver.findElementByAccessibilityId("content_menu_logado");
+        MobileElement hbgMenu = (MobileElement) appiumController.driver.findElementById("layout_menu_logado");
         swipper.verticalSwipe(hbgMenu);
         appiumController.driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
         MobileElement btnSair = (MobileElement) appiumController.driver.findElementById("textview_menu_sair");

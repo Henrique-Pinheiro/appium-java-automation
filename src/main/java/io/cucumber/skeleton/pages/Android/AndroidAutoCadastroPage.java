@@ -5,18 +5,24 @@ import com.github.javafaker.Faker;
 import io.appium.java_client.MobileElement;
 import io.cucumber.skeleton.Support.CpfGenerator;
 import io.cucumber.skeleton.Support.Swipper;
+import org.junit.Assert;
 
 import java.util.Locale;
 
-import static io.cucumber.skeleton.Support.AppiumStarter.appiumController;
 import static io.cucumber.skeleton.Support.StringUtils.unaccent;
+import static io.cucumber.skeleton.pages.Android.BaseAndroidPage.appiumController;
 
 public class AndroidAutoCadastroPage {
 
     private Faker faker = new Faker(new Locale("pt-BR"));
     private Swipper swipper = new Swipper();
-    private String tipoCadastro;
+    private String tipoCadastro = "";
     private String ec;
+    private String nomeCompleto = "";
+    private String email = "";
+    private String cpf = "";
+    private String senha = "";
+    private String numEmail = "";
 
     public void setTipoCadastro(String tipoCadastro) {
         this.tipoCadastro = tipoCadastro.toLowerCase();
@@ -34,6 +40,7 @@ public class AndroidAutoCadastroPage {
         return ec;
     }
 
+
     public String getPageTitle() {
         MobileElement labelAutoCadastro = (MobileElement) appiumController.driver.findElementById("textToolbarMainTitle");
         appiumController.driver.hideKeyboard();
@@ -47,11 +54,12 @@ public class AndroidAutoCadastroPage {
         MobileElement txtCpf = (MobileElement) appiumController.driver.findElementById("edit_text_cpf");
         MobileElement txtSenha = (MobileElement) appiumController.driver.findElementById("edit_text_password");
         MobileElement txtSenha2 = (MobileElement) appiumController.driver.findElementById("edit_text_password_confirm");
-        String nomeCompleto = faker.name().firstName() + " " + faker.name().lastName();
+        nomeCompleto = faker.name().firstName() + " " + faker.name().lastName();
         nomeCompleto = unaccent(nomeCompleto);
-        String email = (nomeCompleto.substring(0, nomeCompleto.indexOf(" ")) + "@cielo.com").toLowerCase();
-        String cpf = CpfGenerator.generateCPF(true);
-        String senha = tipoCadastro.contains("não") ? "s@" + ec : "123456";
+        email = (nomeCompleto.substring(0, nomeCompleto.indexOf(" ")) + "@cielo.com").toLowerCase();
+//        email = "teste" + numEmail + "@emailibre.com";
+        cpf = CpfGenerator.generateCPF(true);
+        senha = tipoCadastro.contains("não") ? "s@" + ec : "123456";
         txtNomeCompleto.setValue(nomeCompleto);
         txtEmail.setValue(email);
         txtEmail2.setValue(email);
@@ -84,7 +92,7 @@ public class AndroidAutoCadastroPage {
         int cont = 1;
         MobileElement elementoBanco = null;
         do {
-            try{
+            try {
                 elementoBanco = (MobileElement) appiumController.driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[" + cont + "]");
                 cont++;
                 txtBanco = elementoBanco.getText();
@@ -95,10 +103,10 @@ public class AndroidAutoCadastroPage {
         } while (!(txtBanco.contains(banco.toLowerCase())));
         elementoBanco.click();
         openSpinnerTipoConta.click();
-        if (tipoConta.toLowerCase().equals("cc")){
+        if (tipoConta.toLowerCase().equals("cc")) {
             MobileElement btnTipoConta = (MobileElement) appiumController.driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[2]");
             btnTipoConta.click();
-        }else{
+        } else {
             MobileElement btnTipoConta = (MobileElement) appiumController.driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[3]");
             btnTipoConta.click();
         }
@@ -108,6 +116,18 @@ public class AndroidAutoCadastroPage {
         txtAgencia.setValue(agencia);
         txtConta.setValue(nConta);
         txtDigito.setValue(digitoConta);
+    }
+
+    public void preencherDadosCartao(String cardNumber) throws InterruptedException {
+        //A scroll view é o componente aonde estao esses dados, sempre que precisar descer a tela, tem que usar o swipper nela
+        MobileElement scrollView = (MobileElement) appiumController.driver.findElementById("layout_scroll_view");
+        swipper.verticalSwipe(scrollView);
+        MobileElement txtEc = (MobileElement) appiumController.driver.findElementById("edit_text_stablishment");
+        txtEc.setValue(ec);
+        MobileElement btnPrePago = (MobileElement) appiumController.driver.findElementById("button_dados_digital");
+        btnPrePago.click();
+        MobileElement txtCardNumber = (MobileElement) appiumController.driver.findElementById("edit_text_serie_number");
+        txtCardNumber.setValue(cardNumber);
     }
 
 
@@ -136,6 +156,20 @@ public class AndroidAutoCadastroPage {
     }
 
     public void verificaTelaEmail() {
+        MobileElement txtEmail = (MobileElement) appiumController.driver.findElementById("text_email");
+        Assert.assertEquals(email, txtEmail.getText());
+    }
 
+    public void pressBtnVoltar() {
+        MobileElement btnVoltar = (MobileElement) appiumController.driver.findElementByAccessibilityId("Navigate up");
+        btnVoltar.click();
+    }
+
+    public void setNumEmail(String numEmail) {
+        this.numEmail = numEmail;
+    }
+
+    public String getNumEmail() {
+        return numEmail;
     }
 }

@@ -29,15 +29,20 @@ public class AutoCadastroSteps {
         Assert.assertEquals("Criar usuário", androidCadastro.getPageTitle());
     }
 
-
     @Dado("que eu deseje realizar um cadastro do tipo (.*) utilizando o EC (.*)")
     public void queEuDesejeRealizarUmCadastroDoTipoTipo_cadastroUtilizandoOECEC(String tipoCadastro, String ec) {
         androidCadastro.setTipoCadastro(tipoCadastro);
         androidCadastro.setEc(ec);
     }
 
+    @Dado("que eu deseje realizar um cadastro utilizando o EC (.*)")
+    public void queEuDesejeRealizarUmCadastroUtilizandoOECEC(String ec) {
+        androidCadastro.setEc(ec);
+    }
+
     @E("que eu preencha os dados cadastrais")
     public void queEuPreenchaOsDadosCadastrais() {
+//        androidCadastro.setNumEmail(numEmail);
         androidCadastro.preencherDadosCadastrais();
     }
 
@@ -66,5 +71,16 @@ public class AutoCadastroSteps {
     public void aoPressionarOBotãoContinuarATelaDeConfirmaçãoDeEmailDeveSerExibida() {
         androidCadastro.pressBtnOk();
         androidCadastro.verificaTelaEmail();
+    }
+
+    @E("ao pressionar o botão voltar a tela de Login deve ser exibida")
+    public void aoPressionarOBotãoVoltarATelaDeLoginDeveSerExibida() {
+        androidCadastro.pressBtnVoltar();
+        Assert.assertTrue("A pagina de login não está sendo exibida", baseAndroidPage.checkLoginPageAgain());
+    }
+
+    @Quando("eu preencher o numero de serie (.*) do cartão")
+    public void euPreencherONumeroDeSerieNumero_serieDoCartão(String cardNumber) throws InterruptedException {
+        androidCadastro.preencherDadosCartao(cardNumber);
     }
 }
