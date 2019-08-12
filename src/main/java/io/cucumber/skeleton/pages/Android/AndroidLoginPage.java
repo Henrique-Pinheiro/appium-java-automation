@@ -56,7 +56,7 @@ public class AndroidLoginPage {
 
     public String getECSalvo() {
         MobileElement ecField = (MobileElement) appiumController.driver.findElementById("textInputEditNewLogin");
-        return ecField.getText();
+        return ecField.getText().replace(".", "").replace("-", "");
     }
 
     public String getUserSalvo() {

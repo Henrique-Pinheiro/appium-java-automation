@@ -11,6 +11,7 @@ import java.util.Locale;
 
 import static io.cucumber.skeleton.Support.StringUtils.unaccent;
 import static io.cucumber.skeleton.pages.Android.BaseAndroidPage.appiumController;
+import static io.cucumber.skeleton.pages.Android.BaseAndroidPage.deviceName;
 
 public class AndroidAutoCadastroPage {
 
@@ -144,15 +145,19 @@ public class AndroidAutoCadastroPage {
     }
 
     public void preencherUsuario() {
-        appiumController.driver.hideKeyboard();
-        MobileElement txtUsuario = (MobileElement) appiumController.driver.findElementById("edit_text_user");
-        txtUsuario.setValue("cielomult");
+        if (tipoCadastro.contains("não")) {
+            appiumController.driver.hideKeyboard();
+            MobileElement txtUsuario = (MobileElement) appiumController.driver.findElementById("edit_text_user");
+            txtUsuario.setValue("cielomult");
+        }
     }
 
     public void pressBtnOk() {
-        appiumController.driver.hideKeyboard();
-        MobileElement btnOk = (MobileElement) appiumController.driver.findElementById("btn_welcome_ok");
-        btnOk.click();
+        if (tipoCadastro.contains("não")) {
+            appiumController.driver.hideKeyboard();
+            MobileElement btnOk = (MobileElement) appiumController.driver.findElementById("btn_welcome_ok");
+            btnOk.click();
+        }
     }
 
     public void verificaTelaEmail() {
@@ -161,7 +166,12 @@ public class AndroidAutoCadastroPage {
     }
 
     public void pressBtnVoltar() {
-        MobileElement btnVoltar = (MobileElement) appiumController.driver.findElementByAccessibilityId("Navigate up");
+        MobileElement btnVoltar = null;
+        if(deviceName.contains("moto") || deviceName.contains("moto")){
+            btnVoltar = (MobileElement) appiumController.driver.findElementByAccessibilityId("Navegar para cima");
+        }else{
+            btnVoltar = (MobileElement) appiumController.driver.findElementByAccessibilityId("Navigate up");
+        }
         btnVoltar.click();
     }
 

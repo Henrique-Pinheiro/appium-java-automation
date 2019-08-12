@@ -43,7 +43,7 @@ public class Devices {
         capabilities.setCapability("platformName", platformName);
         //capabilities.setCapability("appPackage", "com.example.myapplication");
         //capabilities.setCapability("appActivity", ".MainActivity");
-        capabilities.setCapability("app", "/Users/t1409hnr/Desktop/System-Testing/cucumber-java-skeleton/app-dev-homolog.apk");
+        capabilities.setCapability("app", "/Users/t1409hnr/desktop/System-Testing/cielo-app-android/app/build/outputs/apk/dev/homolog/app-dev-homolog.apk");
         switch (deviceName.toLowerCase()){
             case "emulator":
                 capabilities.setCapability("platformVersion", "8.1");
@@ -54,7 +54,7 @@ public class Devices {
                 capabilities.setCapability("deviceName", "0055447539");
                 return capabilities;
             case "samsung j4":
-                capabilities.setCapability("platformVersion", "8.1.0");
+                capabilities.setCapability("platformVersion", "9");
                 capabilities.setCapability("deviceName", "253601f8");
                 return capabilities;
             case "samsung s7":

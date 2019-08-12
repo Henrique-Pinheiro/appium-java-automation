@@ -22,21 +22,21 @@ Funcionalidade: Auto cadastro
   @PfCc
     Exemplos:
       | tipo_cadastro | EC         | tipo_pessoa | banco | tipo_conta | agencia | n_conta   | digito |
-      | Não migrado   | 2006080967 | PF          | 237   | CC         | 01711   | 000145677 | 6      |
+      | migrado       | 2006080967 | PF          | 237   | CC         | 01711   | 000145677 | 6      |
 
-#  @PfCp
-#    Exemplos:
-#      | tipo_cadastro | EC | tipo_pessoa | banco | tipo_conta | agencia | n_conta | digito |
-#
-#  @PjCc
-#    Exemplos:
-#      | tipo_cadastro | EC | tipo_pessoa | banco | tipo_conta | agencia | n_conta | digito |
-#
-#  @PjCp
-#    Exemplos:
-#      | tipo_cadastro | EC | tipo_pessoa | banco | tipo_conta | agencia | n_conta | digito |
+  @PfCp
+    Exemplos:
+      | tipo_cadastro | EC | tipo_pessoa | banco | tipo_conta | agencia | n_conta | digito |
 
-  @done
+  @PjCc
+    Exemplos:
+      | tipo_cadastro | EC | tipo_pessoa | banco | tipo_conta | agencia | n_conta | digito |
+
+  @PjCp
+    Exemplos:
+      | tipo_cadastro | EC | tipo_pessoa | banco | tipo_conta | agencia | n_conta | digito |
+
+  @massa
   Esquema do Cenário: Cadastro de usuário com cartão pré-pago
     Dado que eu deseje realizar um cadastro do tipo <tipo_cadastro> utilizando o EC <EC>
     E que eu preencha os dados cadastrais

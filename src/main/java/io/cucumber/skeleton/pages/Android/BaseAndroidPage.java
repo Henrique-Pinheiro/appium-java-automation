@@ -10,7 +10,7 @@ import java.net.MalformedURLException;
 public class BaseAndroidPage {
 
     //=========================ESPECIFICAR AQUI O NOME DO DEVICE QUE DEVE SER TESTADO==========================================================//
-    protected static String deviceName = "emulator";
+    protected static String deviceName = "samsung j4";
 
     public static String getDeviceName() {
         return deviceName;
