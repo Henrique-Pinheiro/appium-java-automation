@@ -22,7 +22,7 @@ public class AndroidLoginPage {
     }
 
 
-    public String getErrorMsgTxt(){
+    public String getErrorMsgTxt() {
         MobileElement errorMsg = (MobileElement) appiumController.driver.findElementById("custom_dialog_message");
         return errorMsg.getText();
     }
@@ -38,23 +38,14 @@ public class AndroidLoginPage {
         try {
             appiumController.driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
             MobileElement chatBtn = (MobileElement) appiumController.driver.findElementById("icon_chat");
-            result =  !(chatBtn.isDisplayed());
-        }
-        catch (WebDriverException e) {
+            result = !(chatBtn.isDisplayed());
+        } catch (WebDriverException e) {
+            result = false;
             MobileElement errorMsg = (MobileElement) appiumController.driver.findElementById("custom_dialog_message");
             errorMsg.isDisplayed();
             String errorMsgTxt = errorMsg.getText();
             result = errorMsgTxt.contains("erro");
         }
-//        test = ;
-//        System.out.println(test);
-//        if(!test){
-//            MobileElement errorMsg = (MobileElement) appiumController.driver.findElementById("custom_dialog_message");
-//            String errorMsgTxt = errorMsg.getText();
-//            return errorMsgTxt.contains("erro");
-//        }else{
-//            return false;
-//        }
         return result;
     }
 
@@ -65,12 +56,17 @@ public class AndroidLoginPage {
 
     public String getECSalvo() {
         MobileElement ecField = (MobileElement) appiumController.driver.findElementById("textInputEditNewLogin");
-        return ecField.getText();
+        return ecField.getText().replace(".", "").replace("-", "");
     }
 
     public String getUserSalvo() {
         MobileElement userField = (MobileElement) appiumController.driver.findElementById("textInputEditLoginUsername");
         return userField.getText();
 
+    }
+
+    public void touchAutoCadastro() {
+        MobileElement btnAutoCadastro = (MobileElement) appiumController.driver.findElementById("headerButtonViewCreateUser");
+        btnAutoCadastro.click();
     }
 }

@@ -1,10 +1,6 @@
 package io.cucumber.skeleton.pages.iOS;
 
-import cucumber.api.java.Before;
-import io.appium.java_client.MobileElement;
-import io.cucumber.skeleton.AppiumController;
-import io.cucumber.skeleton.Devices;
-import org.junit.After;
+import io.cucumber.skeleton.Support.AppiumController;
 
 import java.net.MalformedURLException;
 

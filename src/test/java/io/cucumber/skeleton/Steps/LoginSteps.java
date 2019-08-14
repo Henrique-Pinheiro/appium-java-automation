@@ -15,6 +15,7 @@ public class LoginSteps {
     private AndroidLoginPage androidLogin = new AndroidLoginPage();
     private AndroidHomePage androidHomePage = new AndroidHomePage();
     private AndroidHamburguerMenu hbgMenu = new AndroidHamburguerMenu();
+    private String user = "";
 
     @E("preencho o campo de Login com {string}")
     public void preenchoOCampoDeLoginComOEC(String ec) {
@@ -28,7 +29,8 @@ public class LoginSteps {
 
     @E("preencher o campo usuário com {string}")
     public void preencherOCampoUsuárioCom(String user) {
-        baseAndroidPage.fillUser(user);
+        this.user = user;
+        baseAndroidPage.fillUser(this.user);
     }
 
     @E("o campo senha com {string}")
@@ -39,11 +41,11 @@ public class LoginSteps {
     @Então("ao pressionar o botão Entrar a tela Home deve ser exibida")
     public void aoPressionarOBotãoEntrarATelaHomeDeveSerExibida() {
         baseAndroidPage.clickBtnLogin();
-        if (androidLogin.loginError()) {
-            throw new RuntimeException("Não foi possivel logar no App devido a um erro no serviço");
-        } else {
+//        if (androidLogin.loginError()) {
+//            throw new RuntimeException("Não foi possivel logar no App devido a um erro no serviço");
+//        } else {
             Assert.assertTrue("A tela home não foi exibida", androidHomePage.checkHomePage());
-        }
+//        }
     }
 
     @E("preencho o campo de Login com um email não cadastrado")
@@ -80,5 +82,14 @@ public class LoginSteps {
         }
         Assert.assertEquals(user, androidLogin.getUserSalvo());
 
+    }
+
+
+    @Quando("eu realizar Login informando o Ec ou CPF ou Email (.*), o usuário, opcional, (.*) e a senha (.*)")
+    public void euRealizarLoginInformandoOEcOuCPFOuEmailEcCpfEmailOUsuárioOpcionalUsuarioEASenhaSenha(String ecEmailCpf, String user, String senha) {
+        preenchoOCampoDeLoginComOEC(ecEmailCpf);
+        euSelecionarOBotãoProximo();
+        preencherOCampoUsuárioCom(user);
+        oCampoSenhaCom(senha);
     }
 }

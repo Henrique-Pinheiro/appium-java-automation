@@ -7,14 +7,15 @@ import org.openqa.selenium.interactions.Sequence;
 
 import java.time.Duration;
 import java.util.Arrays;
+
 import static io.cucumber.skeleton.pages.Android.BaseAndroidPage.appiumController;
 
 
 public class Swipper {
 
-    public void verticalSwipe(String locator) throws InterruptedException {
+    public void verticalSwipe(MobileElement element) throws InterruptedException {
         Thread.sleep(5000);
-        MobileElement slider = (MobileElement) appiumController.driver.findElementById(locator);
+        MobileElement slider = element;
         Point source = slider.getCenter();
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
         Sequence dragNDrop = new Sequence(finger, 1);
