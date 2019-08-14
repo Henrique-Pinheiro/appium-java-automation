@@ -1,4 +1,4 @@
-package io.cucumber.skeleton.pages.Android;
+package io.cucumber.skeleton.pages;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -7,7 +7,7 @@ import io.cucumber.skeleton.Support.AppiumController;
 
 import java.net.MalformedURLException;
 
-public class BaseAndroidPage {
+public class BasePage {
 
     //=========================ESPECIFICAR AQUI O NOME DO DEVICE QUE DEVE SER TESTADO==========================================================//
     protected static String deviceName = "emulator";

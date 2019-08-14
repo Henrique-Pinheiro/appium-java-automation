@@ -2,8 +2,7 @@ package io.cucumber.skeleton.Steps;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Quando;
 import io.cucumber.skeleton.Support.Devices;
-import io.cucumber.skeleton.pages.Android.BaseAndroidPage;
-import io.cucumber.skeleton.pages.iOS.BaseIosPage;
+import io.cucumber.skeleton.pages.BasePage;
 import org.junit.Assert;
 
 public class BaseStepdefs {
@@ -19,13 +18,12 @@ public class BaseStepdefs {
         deviceOs = devices.returnDeviceOs(device.toLowerCase());
     }
 
-    public BaseIosPage baseIosPage = new BaseIosPage();
-    public BaseAndroidPage baseAndroidPage = new BaseAndroidPage();
+    public BasePage basePage = new BasePage();
 
 
     @Dado("que eu estou na tela de Login")
     public void queEuEstouNaTelaDeLogin() {
-        Assert.assertTrue("A pagina de login não está sendo exibida", baseAndroidPage.checkLoginPage());
+        Assert.assertTrue("A pagina de login não está sendo exibida", basePage.checkLoginPage());
     }
 
     @Quando("eu estiver na tela de Login")
