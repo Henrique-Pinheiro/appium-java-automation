@@ -4,24 +4,21 @@ import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
-import io.cucumber.skeleton.pages.Android.AndroidAutoCadastroPage;
-import io.cucumber.skeleton.pages.Android.AndroidLoginPage;
-import io.cucumber.skeleton.pages.Android.BaseAndroidPage;
-import io.cucumber.skeleton.pages.iOS.BaseIosPage;
+import io.cucumber.skeleton.pages.AutoCadastroPage;
+import io.cucumber.skeleton.pages.LoginPage;
+import io.cucumber.skeleton.pages.BasePage;
 import org.junit.Assert;
 
 
 public class AutoCadastroSteps {
 
-
-    public BaseIosPage baseIosPage = new BaseIosPage();
-    public BaseAndroidPage baseAndroidPage = new BaseAndroidPage();
-    public AndroidLoginPage androidLoginPage = new AndroidLoginPage();
-    public AndroidAutoCadastroPage androidCadastro = new AndroidAutoCadastroPage();
+    public BasePage basePage = new BasePage();
+    public LoginPage loginPage = new LoginPage();
+    public AutoCadastroPage androidCadastro = new AutoCadastroPage();
 
     @E("eu selecionar o botão Criar Usuario")
     public void euSelecionarOBotãoAutoCadastro() {
-        androidLoginPage.touchAutoCadastro();
+        loginPage.touchAutoCadastro();
     }
 
     @Então("a tela do Auto Cadastro deve ser exibida")
@@ -76,7 +73,7 @@ public class AutoCadastroSteps {
     @E("ao pressionar o botão voltar a tela de Login deve ser exibida")
     public void aoPressionarOBotãoVoltarATelaDeLoginDeveSerExibida() {
         androidCadastro.pressBtnVoltar();
-        Assert.assertTrue("A pagina de login não está sendo exibida", baseAndroidPage.checkLoginPageAgain());
+        Assert.assertTrue("A pagina de login não está sendo exibida", basePage.checkLoginPageAgain());
     }
 
     @Quando("eu preencher o numero de serie (.*) do cartão")

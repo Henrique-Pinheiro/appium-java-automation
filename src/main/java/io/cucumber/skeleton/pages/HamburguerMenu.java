@@ -1,13 +1,13 @@
-package io.cucumber.skeleton.pages.Android;
+package io.cucumber.skeleton.pages;
 
 import io.appium.java_client.MobileElement;
 import io.cucumber.skeleton.Support.Swipper;
 
 import java.util.concurrent.TimeUnit;
 
-import static io.cucumber.skeleton.pages.Android.BaseAndroidPage.appiumController;
+import static io.cucumber.skeleton.pages.BasePage.appiumController;
 
-public class AndroidHamburguerMenu {
+public class HamburguerMenu {
 
     private Swipper swipper = new Swipper();
     MobileElement hbgMenuBtn = (MobileElement) appiumController.driver.findElementByAccessibilityId("Open navigation drawer");

@@ -1,4 +1,4 @@
-package io.cucumber.skeleton.pages.Android;
+package io.cucumber.skeleton.pages;
 
 
 import com.github.javafaker.Faker;
@@ -10,10 +10,10 @@ import org.junit.Assert;
 import java.util.Locale;
 
 import static io.cucumber.skeleton.Support.StringUtils.unaccent;
-import static io.cucumber.skeleton.pages.Android.BaseAndroidPage.appiumController;
-import static io.cucumber.skeleton.pages.Android.BaseAndroidPage.deviceName;
+import static io.cucumber.skeleton.pages.BasePage.appiumController;
+import static io.cucumber.skeleton.pages.BasePage.deviceName;
 
-public class AndroidAutoCadastroPage {
+public class AutoCadastroPage {
 
     private Faker faker = new Faker(new Locale("pt-BR"));
     private Swipper swipper = new Swipper();

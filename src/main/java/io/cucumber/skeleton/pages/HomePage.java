@@ -1,16 +1,16 @@
-package io.cucumber.skeleton.pages.Android;
+package io.cucumber.skeleton.pages;
 
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.WebDriverException;
 
 import java.util.concurrent.TimeUnit;
 
-import static io.cucumber.skeleton.pages.Android.BaseAndroidPage.appiumController;
+import static io.cucumber.skeleton.pages.BasePage.appiumController;
 
-public class AndroidHomePage {
+public class HomePage {
 
-    private BaseAndroidPage baseAndroidPage = new BaseAndroidPage();
-    //public static AppiumController appiumController = BaseAndroidPage.appiumController;
+    private BasePage basePage = new BasePage();
+    //public static AppiumController appiumController = BasePage.appiumController;
 //    MobileElement btnfehcar = (MobileElement) appiumController.driver.findElementById("btnRight");
 //    84740319314
 

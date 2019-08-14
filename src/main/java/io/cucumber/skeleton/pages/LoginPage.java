@@ -1,4 +1,4 @@
-package io.cucumber.skeleton.pages.Android;
+package io.cucumber.skeleton.pages;
 
 import com.github.javafaker.Faker;
 import io.appium.java_client.MobileElement;
@@ -8,17 +8,17 @@ import org.openqa.selenium.WebDriverException;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
-import static io.cucumber.skeleton.pages.Android.BaseAndroidPage.appiumController;
+import static io.cucumber.skeleton.pages.BasePage.appiumController;
 
-public class AndroidLoginPage {
+public class LoginPage {
 
     private Faker faker = new Faker(new Locale("pt-BR"));
     private String email = faker.internet().emailAddress();
     private String cpf = CpfGenerator.generateCPF(true);
-    private AndroidHomePage homePage = new AndroidHomePage();
+    private HomePage homePage = new HomePage();
 
     public void fillEmail() {
-        BaseAndroidPage.fillFirstLoginField(email);
+        BasePage.fillFirstLoginField(email);
     }
 
 
@@ -28,7 +28,7 @@ public class AndroidLoginPage {
     }
 
     public void fillCpf() {
-        BaseAndroidPage.fillFirstLoginField(cpf);
+        BasePage.fillFirstLoginField(cpf);
     }
 
     //valida caso o serviço de Login esteja fora do Ar

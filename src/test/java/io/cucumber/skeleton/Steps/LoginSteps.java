@@ -3,48 +3,48 @@ package io.cucumber.skeleton.Steps;
 import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
-import io.cucumber.skeleton.pages.Android.AndroidHamburguerMenu;
-import io.cucumber.skeleton.pages.Android.AndroidHomePage;
-import io.cucumber.skeleton.pages.Android.AndroidLoginPage;
-import io.cucumber.skeleton.pages.Android.BaseAndroidPage;
+import io.cucumber.skeleton.pages.HamburguerMenu;
+import io.cucumber.skeleton.pages.HomePage;
+import io.cucumber.skeleton.pages.LoginPage;
+import io.cucumber.skeleton.pages.BasePage;
 import org.junit.Assert;
 
 public class LoginSteps {
 
-    private BaseAndroidPage baseAndroidPage = new BaseAndroidPage();
-    private AndroidLoginPage androidLogin = new AndroidLoginPage();
-    private AndroidHomePage androidHomePage = new AndroidHomePage();
-    private AndroidHamburguerMenu hbgMenu = new AndroidHamburguerMenu();
+    private BasePage basePage = new BasePage();
+    private LoginPage androidLogin = new LoginPage();
+    private HomePage homePage = new HomePage();
+    private HamburguerMenu hbgMenu = new HamburguerMenu();
     private String user = "";
 
     @E("preencho o campo de Login com {string}")
     public void preenchoOCampoDeLoginComOEC(String ec) {
-        baseAndroidPage.fillFirstLoginField(ec);
+        basePage.fillFirstLoginField(ec);
     }
 
     @Quando("eu selecionar o botão Proximo")
     public void euSelecionarOBotãoProximo() {
-        baseAndroidPage.clickBtnPoximo();
+        basePage.clickBtnPoximo();
     }
 
     @E("preencher o campo usuário com {string}")
     public void preencherOCampoUsuárioCom(String user) {
         this.user = user;
-        baseAndroidPage.fillUser(this.user);
+        basePage.fillUser(this.user);
     }
 
     @E("o campo senha com {string}")
     public void oCampoSenhaCom(String password) {
-        baseAndroidPage.fillPass(password);
+        basePage.fillPass(password);
     }
 
     @Então("ao pressionar o botão Entrar a tela Home deve ser exibida")
     public void aoPressionarOBotãoEntrarATelaHomeDeveSerExibida() {
-        baseAndroidPage.clickBtnLogin();
+        basePage.clickBtnLogin();
 //        if (androidLogin.loginError()) {
 //            throw new RuntimeException("Não foi possivel logar no App devido a um erro no serviço");
 //        } else {
-            Assert.assertTrue("A tela home não foi exibida", androidHomePage.checkHomePage());
+            Assert.assertTrue("A tela home não foi exibida", homePage.checkHomePage());
 //        }
     }
 
@@ -55,7 +55,7 @@ public class LoginSteps {
 
     @Então("ao pressionar o botão Entrar, a mensagem {string} deve ser exibida")
     public void aMensagemDeveSerExibida(String msg) {
-        baseAndroidPage.clickBtnLogin();
+        basePage.clickBtnLogin();
         Assert.assertEquals(msg, androidLogin.getErrorMsgTxt());
     }
 
