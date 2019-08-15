@@ -3,13 +3,13 @@ package io.cucumber.skeleton.pages;
 
 import com.github.javafaker.Faker;
 import io.appium.java_client.MobileElement;
-import io.cucumber.skeleton.Support.CpfGenerator;
-import io.cucumber.skeleton.Support.Swipper;
+import io.cucumber.skeleton.support.CpfGenerator;
+import io.cucumber.skeleton.support.Swipper;
 import org.junit.Assert;
 
 import java.util.Locale;
 
-import static io.cucumber.skeleton.Support.StringUtils.unaccent;
+import static io.cucumber.skeleton.support.StringUtils.unaccent;
 import static io.cucumber.skeleton.pages.BasePage.appiumController;
 import static io.cucumber.skeleton.pages.BasePage.deviceName;
 

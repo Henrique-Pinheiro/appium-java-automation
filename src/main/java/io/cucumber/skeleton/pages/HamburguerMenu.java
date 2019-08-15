@@ -1,7 +1,7 @@
 package io.cucumber.skeleton.pages;
 
 import io.appium.java_client.MobileElement;
-import io.cucumber.skeleton.Support.Swipper;
+import io.cucumber.skeleton.support.Swipper;
 
 import java.util.concurrent.TimeUnit;
 
