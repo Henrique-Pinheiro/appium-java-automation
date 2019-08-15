@@ -1,4 +1,4 @@
-package io.cucumber.skeleton.Support;
+package io.cucumber.skeleton.support;
 
 import java.text.Normalizer;
 

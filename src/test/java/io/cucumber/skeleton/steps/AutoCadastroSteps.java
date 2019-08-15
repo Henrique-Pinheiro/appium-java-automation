@@ -1,4 +1,4 @@
-package io.cucumber.skeleton.Steps;
+package io.cucumber.skeleton.steps;
 
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.E;

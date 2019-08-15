@@ -3,7 +3,7 @@ package io.cucumber.skeleton.pages;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import io.appium.java_client.MobileElement;
-import io.cucumber.skeleton.Support.AppiumController;
+import io.cucumber.skeleton.support.AppiumController;
 
 import java.net.MalformedURLException;
 

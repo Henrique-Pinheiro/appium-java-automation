@@ -1,4 +1,4 @@
-package io.cucumber.skeleton.Support;
+package io.cucumber.skeleton.support;
 
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.Point;

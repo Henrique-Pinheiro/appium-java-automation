@@ -2,7 +2,7 @@ package io.cucumber.skeleton.pages;
 
 import com.github.javafaker.Faker;
 import io.appium.java_client.MobileElement;
-import io.cucumber.skeleton.Support.CpfGenerator;
+import io.cucumber.skeleton.support.CpfGenerator;
 import org.openqa.selenium.WebDriverException;
 
 import java.util.Locale;
