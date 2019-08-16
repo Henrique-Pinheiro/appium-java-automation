@@ -14,7 +14,6 @@ public class LoginSteps {
     private BasePage basePage = new BasePage();
     private LoginPage androidLogin = new LoginPage();
     private HomePage homePage = new HomePage();
-    private HamburguerMenu hbgMenu = new HamburguerMenu();
     private String user = "";
 
     @E("preencho o campo de Login com {string}")
@@ -76,6 +75,7 @@ public class LoginSteps {
 
     @Então("ao sair do App, os campos (.*) e (.*) devem continuar preenchidos na Tela de Login")
     public void aoSairDoAppOsCamposECUsuarioSenhaDevemContinuarPreenchidosNaTelaDeLogin(String ec, String user) throws InterruptedException {
+        HamburguerMenu hbgMenu = new HamburguerMenu();
         hbgMenu.sair();
         if (ec.length() > 0) {
             Assert.assertEquals(ec, androidLogin.getECSalvo());
@@ -92,4 +92,5 @@ public class LoginSteps {
         preencherOCampoUsuárioCom(user);
         oCampoSenhaCom(senha);
     }
+
 }

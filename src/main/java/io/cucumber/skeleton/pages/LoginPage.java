@@ -4,10 +4,8 @@ import com.github.javafaker.Faker;
 import io.appium.java_client.MobileElement;
 import io.cucumber.skeleton.support.CpfGenerator;
 import org.openqa.selenium.WebDriverException;
-
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
-
 import static io.cucumber.skeleton.pages.BasePage.appiumController;
 
 public class LoginPage {
