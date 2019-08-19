@@ -14,4 +14,8 @@ public class StringUtils {
                 .replaceAll("[^\\p{ASCII}]", "");
     }
 
+    //retorna toda só os digitos da String
+    public static String getDigits(String str){
+        return str.replaceAll("\\D+","");
+    }
 }
