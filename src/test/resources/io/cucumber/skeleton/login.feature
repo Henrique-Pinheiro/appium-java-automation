@@ -62,9 +62,9 @@ Funcionalidade: Login no App Cielo
     Então ao sair do App, os campos <EC> e <usuario> devem continuar preenchidos na Tela de Login
 
     Exemplos:
-      | EC          | usuario    | senha        |
-      | 2007700179  | 2007700179 | 654321       |
-      | 2006074959  | cielomult  | s@2006074959 |
+      | EC         | usuario    | senha        |
+      | 2007700179 | 2007700179 | 654321       |
+      | 2006005485 | 2006005485 | s@2006005485 |
 
   @done
   Esquema do Cenario: Realizar multiplos Logins no App

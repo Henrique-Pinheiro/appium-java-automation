@@ -20,7 +20,7 @@ public class HamburguerMenu {
         openHbgMenu();
         MobileElement hbgMenu = (MobileElement) appiumController.driver.findElementById("layout_menu_logado");
         swipper.verticalSwipe(hbgMenu);
-        appiumController.driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+//        appiumController.driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
         MobileElement btnSair = (MobileElement) appiumController.driver.findElementById("textview_menu_sair");
         btnSair.click();
     }

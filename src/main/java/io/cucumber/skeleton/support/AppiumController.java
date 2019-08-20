@@ -17,18 +17,22 @@ public class AppiumController {
     public static WebDriverWait wait;
     public String platformName;
     public String deviceName;
+    private static URL appiumURL;
 
-    public AppiumController(String deviceName){
+    public AppiumController(String deviceName) {
         this.deviceName = deviceName;
     }
 
     public void startDriver() throws MalformedURLException {
         Devices devices = new Devices();
-        URL appiumURL = new URL("http://localhost:4723/wd/hub");
+        if (deviceName.contains("farm")){
+            appiumURL = new URL("http://10.64.234.8:8080/wd/hub");
+        }else{
+            appiumURL = new URL("http://localhost:4723/wd/hub");
+        }
         DesiredCapabilities capabilities = devices.returnCaps(deviceName);
         platformName = (String) capabilities.getCapability("platformName");
-//        platformName = "android";
-                switch (platformName.toLowerCase()){
+        switch (platformName.toLowerCase()) {
             default:
             case "android":
                 driver = new AndroidDriver(appiumURL, capabilities);
@@ -36,7 +40,8 @@ public class AppiumController {
             case "ios":
                 driver = new IOSDriver(appiumURL, capabilities);
                 break;
-        }this.setDefaultTimeOut();
+        }
+        this.setDefaultTimeOut();
     }
 
     public void stopDriver() {
