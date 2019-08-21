@@ -31,7 +31,7 @@ public class HomePage {
         }
         catch (WebDriverException ignored) {
         }
-        appiumController.driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+//        appiumController.driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
         MobileElement chatBtn = (MobileElement) appiumController.driver.findElementById("icon_chat");
         return chatBtn.isDisplayed();
     }

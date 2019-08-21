@@ -8,6 +8,7 @@ import io.cucumber.skeleton.support.Swipper;
 import org.junit.Assert;
 
 import java.util.Locale;
+import java.util.Random;
 
 import static io.cucumber.skeleton.support.StringUtils.unaccent;
 import static io.cucumber.skeleton.pages.BasePage.appiumController;
@@ -24,6 +25,7 @@ public class AutoCadastroPage {
     private String cpf = "";
     private String senha = "";
     private String numEmail = "";
+    Random rand = new Random();
 
     public void setTipoCadastro(String tipoCadastro) {
         this.tipoCadastro = tipoCadastro.toLowerCase();
@@ -57,7 +59,7 @@ public class AutoCadastroPage {
         MobileElement txtSenha2 = (MobileElement) appiumController.driver.findElementById("edit_text_password_confirm");
         nomeCompleto = faker.name().firstName() + " " + faker.name().lastName();
         nomeCompleto = unaccent(nomeCompleto);
-        email = (nomeCompleto.substring(0, nomeCompleto.indexOf(" ")) + "@cielo.com").toLowerCase();
+        email = (nomeCompleto.substring(0, nomeCompleto.indexOf(" ")) + rand.nextInt(20) + "@cielo.com").toLowerCase();
 //        email = "teste" + numEmail + "@emailibre.com";
         cpf = CpfGenerator.generateCPF(true);
         senha = tipoCadastro.contains("não") ? "s@" + ec : "123456";
@@ -167,7 +169,7 @@ public class AutoCadastroPage {
 
     public void pressBtnVoltar() {
         MobileElement btnVoltar = null;
-        if(deviceName.contains("moto") || deviceName.contains("moto")){
+        if(deviceName.contains("moto") || deviceName.contains("s8")){
             btnVoltar = (MobileElement) appiumController.driver.findElementByAccessibilityId("Navegar para cima");
         }else{
             btnVoltar = (MobileElement) appiumController.driver.findElementByAccessibilityId("Navigate up");
