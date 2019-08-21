@@ -31,10 +31,9 @@ public class LoginPage {
 
     //valida caso o serviço de Login esteja fora do Ar
     public boolean loginError() {
-//        appiumController.driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
         boolean result;
         try {
-//            appiumController.driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+            appiumController.driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
             MobileElement chatBtn = (MobileElement) appiumController.driver.findElementById("icon_chat");
             result = !(chatBtn.isDisplayed());
         } catch (WebDriverException e) {

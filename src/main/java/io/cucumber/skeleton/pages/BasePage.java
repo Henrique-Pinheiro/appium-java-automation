@@ -15,7 +15,7 @@ import java.net.MalformedURLException;
 public class BasePage {
 
     //=========================ESPECIFICAR AQUI O NOME DO DEVICE QUE DEVE SER TESTADO==========================================================//
-    protected static String deviceName = "emulator";
+    protected static String deviceName = "samsung s8";
 
     public static String getDeviceName() {
         return deviceName;
@@ -46,7 +46,7 @@ public class BasePage {
 
 
     public static boolean checkLoginPage() {
-        appiumController.driver.hideKeyboard();
+//        appiumController.driver.hideKeyboard();
         MobileElement btnJump = (MobileElement) appiumController.driver.findElementById("btnJump");
         if (btnJump.isDisplayed()) {
             btnJump.click();
@@ -64,31 +64,31 @@ public class BasePage {
     public static void fillFirstLoginField(String emailEcOrCpf) {
         MobileElement firstTxtField = (MobileElement) appiumController.driver.findElementById("textInputEditNewLogin");
         firstTxtField.setValue(emailEcOrCpf);
-        appiumController.driver.hideKeyboard();
+//        appiumController.driver.hideKeyboard();
     }
 
     public static void clickBtnPoximo() {
-        appiumController.driver.hideKeyboard();
+//        appiumController.driver.hideKeyboard();
         MobileElement btnProximo = (MobileElement) appiumController.driver.findElementById("buttonLoginNext");
         btnProximo.click();
     }
 
     public void clickBtnLogin() {
-        appiumController.driver.hideKeyboard();
+//        appiumController.driver.hideKeyboard();
         MobileElement btnLogin = (MobileElement) appiumController.driver.findElementById("buttonNewLoginUserEnter");
         btnLogin.click();
     }
 
     public static void fillUser(String user) {
         if (!(user.isEmpty())) {
-            appiumController.driver.hideKeyboard();
+//            appiumController.driver.hideKeyboard();
             MobileElement userField = (MobileElement) appiumController.driver.findElementById("textInputEditLoginUsername");
             userField.setValue(user);
         }
     }
 
     public static void fillPass(String password) {
-        appiumController.driver.hideKeyboard();
+//        appiumController.driver.hideKeyboard();
         MobileElement passField = (MobileElement) appiumController.driver.findElementById("textInputEditLoginPassword");
         passField.setValue(password);
     }

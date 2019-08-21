@@ -1,5 +1,6 @@
 package io.cucumber.skeleton.steps;
 
+import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
@@ -11,6 +12,7 @@ import org.junit.Assert;
 
 public class LoginSteps {
 
+    private BaseStepdefs baseSteps = new BaseStepdefs();
     private BasePage basePage = new BasePage();
     private LoginPage androidLogin = new LoginPage();
     private HomePage homePage = new HomePage();
@@ -92,5 +94,4 @@ public class LoginSteps {
         preencherOCampoUsuárioCom(user);
         oCampoSenhaCom(senha);
     }
-
 }
