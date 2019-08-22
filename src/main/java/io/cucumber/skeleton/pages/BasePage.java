@@ -15,7 +15,7 @@ import java.net.MalformedURLException;
 public class BasePage {
 
     //=========================ESPECIFICAR AQUI O NOME DO DEVICE QUE DEVE SER TESTADO==========================================================//
-    protected static String deviceName = "samsung s8";
+    protected static String deviceName = "j6 farm";
 
     public static String getDeviceName() {
         return deviceName;

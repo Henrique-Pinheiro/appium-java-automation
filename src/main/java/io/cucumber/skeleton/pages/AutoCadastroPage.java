@@ -169,7 +169,7 @@ public class AutoCadastroPage {
 
     public void pressBtnVoltar() {
         MobileElement btnVoltar = null;
-        if(deviceName.contains("moto") || deviceName.contains("s8")){
+        if(deviceName.contains("moto") || deviceName.contains("s8") || deviceName.contains("farm")){
             btnVoltar = (MobileElement) appiumController.driver.findElementByAccessibilityId("Navegar para cima");
         }else{
             btnVoltar = (MobileElement) appiumController.driver.findElementByAccessibilityId("Navigate up");
