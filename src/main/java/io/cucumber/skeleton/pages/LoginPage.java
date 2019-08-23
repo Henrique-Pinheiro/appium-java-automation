@@ -6,8 +6,7 @@ import io.cucumber.skeleton.support.CpfGenerator;
 import org.openqa.selenium.WebDriverException;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
-import static io.cucumber.skeleton.pages.BasePage.appiumController;
-
+import static io.cucumber.skeleton.support.AppiumController.driver;
 public class LoginPage {
 
     private Faker faker = new Faker(new Locale("pt-BR"));
@@ -21,7 +20,7 @@ public class LoginPage {
 
 
     public String getErrorMsgTxt() {
-        MobileElement errorMsg = (MobileElement) appiumController.driver.findElementById("custom_dialog_message");
+        MobileElement errorMsg = (MobileElement) driver.findElementById("custom_dialog_message");
         return errorMsg.getText();
     }
 
@@ -33,12 +32,12 @@ public class LoginPage {
     public boolean loginError() {
         boolean result;
         try {
-            appiumController.driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
-            MobileElement chatBtn = (MobileElement) appiumController.driver.findElementById("icon_chat");
+            driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+            MobileElement chatBtn = (MobileElement) driver.findElementById("icon_chat");
             result = !(chatBtn.isDisplayed());
         } catch (WebDriverException e) {
             result = false;
-            MobileElement errorMsg = (MobileElement) appiumController.driver.findElementById("custom_dialog_message");
+            MobileElement errorMsg = (MobileElement) driver.findElementById("custom_dialog_message");
             errorMsg.isDisplayed();
             String errorMsgTxt = errorMsg.getText();
             result = errorMsgTxt.contains("erro");
@@ -47,23 +46,23 @@ public class LoginPage {
     }
 
     public void checkSalvarDados() {
-        MobileElement checkBoxSaveUserData = (MobileElement) appiumController.driver.findElementById("checkBoxSaveUserData");
+        MobileElement checkBoxSaveUserData = (MobileElement) driver.findElementById("checkBoxSaveUserData");
         checkBoxSaveUserData.click();
     }
 
     public String getECSalvo() {
-        MobileElement ecField = (MobileElement) appiumController.driver.findElementById("textInputEditNewLogin");
+        MobileElement ecField = (MobileElement) driver.findElementById("textInputEditNewLogin");
         return ecField.getText().replace(".", "").replace("-", "");
     }
 
     public String getUserSalvo() {
-        MobileElement userField = (MobileElement) appiumController.driver.findElementById("textInputEditLoginUsername");
+        MobileElement userField = (MobileElement) driver.findElementById("textInputEditLoginUsername");
         return userField.getText();
 
     }
 
     public void touchAutoCadastro() {
-        MobileElement btnAutoCadastro = (MobileElement) appiumController.driver.findElementById("headerButtonViewCreateUser");
+        MobileElement btnAutoCadastro = (MobileElement) driver.findElementById("headerButtonViewCreateUser");
         btnAutoCadastro.click();
     }
 }

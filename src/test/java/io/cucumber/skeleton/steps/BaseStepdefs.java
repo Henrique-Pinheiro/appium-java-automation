@@ -1,25 +1,25 @@
 package io.cucumber.skeleton.steps;
+import cucumber.api.java.bs.A;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Quando;
+import io.cucumber.skeleton.support.AppiumStart;
 import io.cucumber.skeleton.support.Devices;
 import io.cucumber.skeleton.pages.BasePage;
 import org.junit.Assert;
 
 public class BaseStepdefs {
 
-    public String deviceName;
-    public String deviceOs;
-    public Devices devices = new Devices();
-//    public Object basePage;
+    private BasePage basePage = new BasePage();
+
+    private String deviceOs;
+    private Devices devices = new Devices();
 
     @Dado("que eu estou usando o aparelho {string}")
     public void queEuEstouUsandoOAparelho(String device) {
-        deviceName = device;
+        AppiumStart appiumStart = new AppiumStart(device);
         deviceOs = devices.returnDeviceOs(device.toLowerCase());
+        appiumStart.beforeScenarioStart();
     }
-
-    public BasePage basePage = new BasePage();
-
 
     @Dado("que eu estou na tela de Login")
     public void queEuEstouNaTelaDeLogin() {

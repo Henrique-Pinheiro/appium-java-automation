@@ -1,6 +1,7 @@
 #language: pt
 
-Funcionalidade: Login no App Cielo
+Funcionalidade: Logi
+  n no 11App Cielo
 
   Contexto:
     Dado que eu estou usando o aparelho "Emulator"
@@ -8,7 +9,7 @@ Funcionalidade: Login no App Cielo
   @done
   Cenario: Realizar Login no App com usuário não migrado, utilizando, EC e nome de usuário sem dados salvos
     Dado que eu estou na tela de Login
-    E preencho o campo de Login com "2006095565"
+    E preencho o campo de Login com "2006095564"
     Quando eu selecionar o botão Proximo
     E preencher o campo usuário com "2006095565"
     E o campo senha com "s@2006095565"

@@ -12,7 +12,7 @@ public class Devices {
 
     public String returnDeviceOs(String deviceName) {
         this.deviceName = deviceName;
-        switch (deviceName) {
+        switch (deviceName.toLowerCase()) {
             case "emulator":
                 return "android";
             case "moto g7":
@@ -45,7 +45,7 @@ public class Devices {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         String platformName = returnDeviceOs(deviceName);
         capabilities.setCapability("platformName", platformName);
-        if (platformName.toLowerCase().equals("android")) {
+        if (platformName.equalsIgnoreCase("android")) {
             if (deviceName.contains("farm")) {
                 capabilities.setCapability("noReset", "false");
                 capabilities.setCapability("appPackage", "br.com.mobicare.cielo.homolog");

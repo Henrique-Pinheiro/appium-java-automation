@@ -3,7 +3,7 @@
 Funcionalidade: Auto cadastro
 
   Contexto:
-    Dado que eu estou usando o aparelho "Emulator"
+    Dado que eu estou usando o aparelho "emulator"
     Quando eu estiver na tela de Login
     E eu selecionar o botão Criar Usuario
     Então a tela do Auto Cadastro deve ser exibida

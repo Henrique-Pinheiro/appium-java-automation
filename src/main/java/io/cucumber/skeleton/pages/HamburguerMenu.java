@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriverException;
 
 import java.util.concurrent.TimeUnit;
 
-import static io.cucumber.skeleton.pages.BasePage.appiumController;
+import static io.cucumber.skeleton.support.AppiumController.driver;
 
 public class HamburguerMenu {
 
@@ -18,20 +18,20 @@ public class HamburguerMenu {
 
     public void sair() throws InterruptedException {
         openHbgMenu();
-        MobileElement hbgMenu = (MobileElement) appiumController.driver.findElementById("layout_menu_logado");
+        MobileElement hbgMenu = (MobileElement) driver.findElementById("layout_menu_logado");
         swipper.verticalSwipe(hbgMenu);
-//        appiumController.driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
-        MobileElement btnSair = (MobileElement) appiumController.driver.findElementById("textview_menu_sair");
+//        driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+        MobileElement btnSair = (MobileElement) driver.findElementById("textview_menu_sair");
         btnSair.click();
     }
 
     public static void openHbgMenu() {
-        MobileElement hbgMenuBtn = (MobileElement) appiumController.driver.findElementByAccessibilityId("Open navigation drawer");
+        MobileElement hbgMenuBtn = (MobileElement) driver.findElementByAccessibilityId("Open navigation drawer");
         hbgMenuBtn.click();
     }
 
     public static void setCurrentEc() {
-        MobileElement hbgMenuEc = (MobileElement) appiumController.driver.findElementById("textview_menu_logado_ec");
+        MobileElement hbgMenuEc = (MobileElement) driver.findElementById("textview_menu_logado_ec");
         currentEc =  StringUtils.getDigits(hbgMenuEc.getText());
 //        currentEc = hbgMenuEc.getText();
     }
