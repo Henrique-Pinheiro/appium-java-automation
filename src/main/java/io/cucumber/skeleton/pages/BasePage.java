@@ -24,8 +24,6 @@ public class BasePage {
 
     //=========================ESPECIFICAR AQUI O NOME DO DEVICE QUE DEVE SER TESTADO==========================================================//
 
-    private AppiumDriver driver = AppiumController.driver;
-
     public BasePage() {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }

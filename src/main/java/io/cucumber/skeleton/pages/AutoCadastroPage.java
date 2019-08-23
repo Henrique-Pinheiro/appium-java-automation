@@ -2,13 +2,20 @@ package io.cucumber.skeleton.pages;
 
 
 import com.github.javafaker.Faker;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSFindBy;
+import io.cucumber.skeleton.support.AppiumController;
 import io.cucumber.skeleton.support.CpfGenerator;
 import io.cucumber.skeleton.support.Swipper;
 import org.junit.Assert;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.Locale;
 import java.util.Random;
+
 import static io.cucumber.skeleton.support.AppiumController.driver;
 import static io.cucumber.skeleton.support.StringUtils.unaccent;
 import static io.cucumber.skeleton.support.AppiumStart.deviceName;
@@ -26,8 +33,57 @@ public class AutoCadastroPage {
     private String senha = "";
     private String numEmail = "";
 
+    @AndroidFindBy(id = "textToolbarMainTitle")
+    @iOSFindBy(id = "")
+    private MobileElement labelAutoCadastro;
 
+    @AndroidFindBy(id = "edit_text_full_name")
+    @iOSFindBy(id = "")
+    private MobileElement txtNomeCompleto;
 
+    @AndroidFindBy(id = "edit_text_email")
+    @iOSFindBy(id = "")
+    private MobileElement txtEmail;
+
+    @AndroidFindBy(id = "edit_text_email_confirm")
+    @iOSFindBy(id = "")
+    private MobileElement txtEmail2;
+
+    @AndroidFindBy(id = "edit_text_cpf")
+    @iOSFindBy(id = "")
+    private MobileElement txtCpf;
+
+    @AndroidFindBy(id = "edit_text_password")
+    @iOSFindBy(id = "")
+    private MobileElement txtSenha;
+
+    @AndroidFindBy(id = "edit_text_password_confirm")
+    @iOSFindBy(id = "")
+    private MobileElement txtSenha2;
+
+    @AndroidFindBy(id = "layout_scroll_view")
+    @iOSFindBy(id = "")
+    private MobileElement scrollView;
+
+    @AndroidFindBy(id = "edit_text_stablishment")
+    @iOSFindBy(id = "")
+    private MobileElement txtEc;
+
+    @AndroidFindBy(id = "button_dados_bancario")
+    @iOSFindBy(id = "")
+    private MobileElement btnBancaria;
+
+    @AndroidFindBy(id = "button_account_fisica")
+    @iOSFindBy(id = "")
+    private MobileElement btnFisica;
+
+    @AndroidFindBy(id = "button_account_juridica")
+    @iOSFindBy(id = "")
+    private MobileElement btnJuridica;
+
+    public AutoCadastroPage() {
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+    }
 
     public void setTipoCadastro(String tipoCadastro) {
         this.tipoCadastro = tipoCadastro.toLowerCase();
@@ -47,22 +103,21 @@ public class AutoCadastroPage {
 
 
     public String getPageTitle() {
-        MobileElement labelAutoCadastro = (MobileElement) driver.findElementById("textToolbarMainTitle");
-        driver.hideKeyboard();
+//        MobileElement labelAutoCadastro = (MobileElement) driver.findElementById("textToolbarMainTitle");
         return labelAutoCadastro.getText();
     }
 
     public void preencherDadosCadastrais() {
-        MobileElement txtNomeCompleto = (MobileElement) driver.findElementById("edit_text_full_name");
-        MobileElement txtEmail = (MobileElement) driver.findElementById("edit_text_email");
-        MobileElement txtEmail2 = (MobileElement) driver.findElementById("edit_text_email_confirm");
-        MobileElement txtCpf = (MobileElement) driver.findElementById("edit_text_cpf");
-        MobileElement txtSenha = (MobileElement) driver.findElementById("edit_text_password");
-        MobileElement txtSenha2 = (MobileElement) driver.findElementById("edit_text_password_confirm");
+//        MobileElement txtNomeCompleto = (MobileElement) driver.findElementById("edit_text_full_name");
+//        MobileElement txtEmail = (MobileElement) driver.findElementById("edit_text_email");
+//        MobileElement txtEmail2 = (MobileElement) driver.findElementById("edit_text_email_confirm");
+//        MobileElement txtCpf = (MobileElement) driver.findElementById("edit_text_cpf");
+//        MobileElement txtSenha = (MobileElement) driver.findElementById("edit_text_password");
+//        MobileElement txtSenha2 = (MobileElement) driver.findElementById("edit_text_password_confirm");
+        driver.hideKeyboard();
         nomeCompleto = faker.name().firstName() + " " + faker.name().lastName();
         nomeCompleto = unaccent(nomeCompleto);
         email = (nomeCompleto.substring(0, nomeCompleto.indexOf(" ")) + rand.nextInt(20) + "@cielo.com").toLowerCase();
-//        email = "teste" + numEmail + "@emailibre.com";
         cpf = CpfGenerator.generateCPF(true);
         senha = tipoCadastro.contains("não") ? "s@" + ec : "123456";
         txtNomeCompleto.setValue(nomeCompleto);
@@ -73,14 +128,14 @@ public class AutoCadastroPage {
         txtSenha2.setValue(senha);
     }
 
+    //A scroll view é o componente aonde estao esses dados, sempre que precisar descer a tela, tem que usar o swipper nela
     public void preencherDadosBancarios(String tipoPessoa, String banco, String tipoConta, String agencia, String nConta, String digitoConta) throws InterruptedException {
-        //A scroll view é o componente aonde estao esses dados, sempre que precisar descer a tela, tem que usar o swipper nela
-        MobileElement scrollView = (MobileElement) driver.findElementById("layout_scroll_view");
         swipper.verticalSwipe(scrollView);
-        MobileElement txtEc = (MobileElement) driver.findElementById("edit_text_stablishment");
-        MobileElement btnBancaria = (MobileElement) driver.findElementById("button_dados_bancario");
-        MobileElement btnFisica = (MobileElement) driver.findElementById("button_account_fisica");
-        MobileElement btnJuridica = (MobileElement) driver.findElementById("button_account_juridica");
+//        MobileElement scrollView = (MobileElement) driver.findElementById("layout_scroll_view");
+//        MobileElement txtEc = (MobileElement) driver.findElementById("edit_text_stablishment");
+//        MobileElement btnBancaria = (MobileElement) driver.findElementById("button_dados_bancario");
+//        MobileElement btnFisica = (MobileElement) driver.findElementById("button_account_fisica");
+//        MobileElement btnJuridica = (MobileElement) driver.findElementById("button_account_juridica");
         txtEc.setValue(ec);
         btnBancaria.click();
         if (tipoPessoa.toLowerCase().equals("pf")) {
@@ -171,9 +226,9 @@ public class AutoCadastroPage {
 
     public void pressBtnVoltar() {
         MobileElement btnVoltar = null;
-        if(deviceName.contains("moto") || deviceName.contains("s8") || deviceName.contains("farm")){
+        if (deviceName.contains("moto") || deviceName.contains("s8") || deviceName.contains("farm")) {
             btnVoltar = (MobileElement) driver.findElementByAccessibilityId("Navegar para cima");
-        }else{
+        } else {
             btnVoltar = (MobileElement) driver.findElementByAccessibilityId("Navigate up");
         }
         btnVoltar.click();
