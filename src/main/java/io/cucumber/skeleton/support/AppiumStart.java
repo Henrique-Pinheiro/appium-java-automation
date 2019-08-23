@@ -17,7 +17,7 @@ import java.net.MalformedURLException;
 public class AppiumStart {
 
     //=========================ESPECIFICAR AQUI O NOME DO DEVICE QUE DEVE SER TESTADO==========================================================//
-    private static String deviceName;
+    public static String deviceName;
     private AppiumController appiumController;
 
     public AppiumStart(String deviceName) {
@@ -46,7 +46,7 @@ public class AppiumStart {
     }
 
     //============Remover as Tags por enquanto dependendo de quem for rodar===========================//
-    @After
+//    @After
     public void afterScenarioFinish(Scenario scenario) throws IOException {
         if (scenario.isFailed()) {
             File file = driver.getScreenshotAs(OutputType.FILE);

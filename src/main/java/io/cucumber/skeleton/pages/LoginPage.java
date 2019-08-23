@@ -13,9 +13,10 @@ public class LoginPage {
     private String email = faker.internet().emailAddress();
     private String cpf = CpfGenerator.generateCPF(true);
     private HomePage homePage = new HomePage();
+    private BasePage basePage = new BasePage();
 
     public void fillEmail() {
-        BasePage.fillFirstLoginField(email);
+        basePage.fillFirstLoginField(email);
     }
 
 
@@ -25,7 +26,7 @@ public class LoginPage {
     }
 
     public void fillCpf() {
-        BasePage.fillFirstLoginField(cpf);
+        basePage.fillFirstLoginField(cpf);
     }
 
     //valida caso o serviço de Login esteja fora do Ar

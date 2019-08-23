@@ -9,17 +9,19 @@ import org.junit.Assert;
 
 public class BaseStepdefs {
 
-    private BasePage basePage = new BasePage();
-
     private String deviceOs;
     private Devices devices = new Devices();
+    private BasePage basePage;
 
     @Dado("que eu estou usando o aparelho {string}")
     public void queEuEstouUsandoOAparelho(String device) {
         AppiumStart appiumStart = new AppiumStart(device);
         deviceOs = devices.returnDeviceOs(device.toLowerCase());
         appiumStart.beforeScenarioStart();
+        basePage = new BasePage();
     }
+
+
 
     @Dado("que eu estou na tela de Login")
     public void queEuEstouNaTelaDeLogin() {

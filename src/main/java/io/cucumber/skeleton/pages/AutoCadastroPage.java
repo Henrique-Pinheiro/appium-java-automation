@@ -11,10 +11,11 @@ import java.util.Locale;
 import java.util.Random;
 import static io.cucumber.skeleton.support.AppiumController.driver;
 import static io.cucumber.skeleton.support.StringUtils.unaccent;
-import static io.cucumber.skeleton.pages.BasePage.deviceName;
+import static io.cucumber.skeleton.support.AppiumStart.deviceName;
 
 public class AutoCadastroPage {
 
+    private Random rand = new Random();
     private Faker faker = new Faker(new Locale("pt-BR"));
     private Swipper swipper = new Swipper();
     private String tipoCadastro = "";
@@ -24,7 +25,9 @@ public class AutoCadastroPage {
     private String cpf = "";
     private String senha = "";
     private String numEmail = "";
-    Random rand = new Random();
+
+
+
 
     public void setTipoCadastro(String tipoCadastro) {
         this.tipoCadastro = tipoCadastro.toLowerCase();

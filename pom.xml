@@ -46,11 +46,11 @@
             <artifactId>javafaker</artifactId>
             <version>1.0.0</version>
         </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-picocontainer</artifactId>
-            <version>${cucumber.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>io.cucumber</groupId>-->
+<!--            <artifactId>cucumber-picocontainer</artifactId>-->
+<!--            <version>${cucumber.version}</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
