@@ -32,31 +32,31 @@ public class BasePage {
 
     @AndroidFindBy(id = "textInputEditNewLogin")
     @iOSFindBy(id = "")
-    MobileElement firstTxtField;
+    private MobileElement firstTxtField;
 
     @AndroidFindBy(id = "btnJump")
     @iOSFindBy(id = "")
-    MobileElement btnJump;
+    private MobileElement btnJump;
 
     @AndroidFindBy(id = "textLoginLabel")
     @iOSFindBy(id = "")
-    MobileElement txtLoginLabel;
+    private MobileElement txtLoginLabel;
 
     @AndroidFindBy(id = "buttonLoginNext")
     @iOSFindBy(id = "")
-    MobileElement btnProximo;
+    private MobileElement btnProximo;
 
     @AndroidFindBy(id = "buttonNewLoginUserEnter")
     @iOSFindBy(id = "")
-    MobileElement btnLogin;
+    private MobileElement btnLogin;
 
     @AndroidFindBy(id = "textInputEditLoginUsername")
     @iOSFindBy(id = "")
-    MobileElement userField;
+    private MobileElement userField;
 
     @AndroidFindBy(id = "textInputEditLoginPassword")
     @iOSFindBy(id = "")
-    MobileElement passField;
+    private MobileElement passField;
 
 
 
