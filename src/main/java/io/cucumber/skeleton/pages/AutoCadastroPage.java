@@ -81,6 +81,71 @@ public class AutoCadastroPage {
     @iOSFindBy(id = "")
     private MobileElement btnJuridica;
 
+    @AndroidFindBy(id = "spinner_esqueci_senha_banco")
+    @iOSFindBy(id = "")
+    private MobileElement openSpinnerBanco;
+
+    @AndroidFindBy(id = "spinner_esqueci_minha_conta")
+    @iOSFindBy(id = "")
+    private MobileElement openSpinnerTipoConta;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView")
+    @iOSFindBy(id = "")
+    private MobileElement spinnerBancoBody;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[2]")
+    @iOSFindBy(id = "")
+    private MobileElement btnTipoContaCc;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[3]")
+    @iOSFindBy(id = "")
+    private MobileElement btnTipoContaCp;
+
+    @AndroidFindBy(id = "edit_text_esqueci_senha_agencia")
+    @iOSFindBy(id = "")
+    private MobileElement txtAgencia;
+
+    @AndroidFindBy(id = "edit_text_esqueci_senha_numero_conta")
+    @iOSFindBy(id = "")
+    private MobileElement txtConta;
+
+    @AndroidFindBy(id = "edit_text_esqueci_senha_digito_conta")
+    @iOSFindBy(id = "")
+    private MobileElement txtDigito;
+
+    @AndroidFindBy(id = "button_dados_digital")
+    @iOSFindBy(id = "")
+    private MobileElement btnPrePago;
+
+    @AndroidFindBy(id = "edit_text_serie_number")
+    @iOSFindBy(id = "")
+    private MobileElement txtCardNumber;
+
+    @AndroidFindBy(id = "checkBoxConfirmTerms")
+    @iOSFindBy(id = "")
+    private MobileElement checkDeAcordo;
+
+    @AndroidFindBy(id = "buttonConfirm")
+    @iOSFindBy(id = "")
+    private MobileElement btnConfirmar;
+
+    @AndroidFindBy(id = "edit_text_user")
+    @iOSFindBy(id = "")
+    private MobileElement txtUsuario;
+
+    @AndroidFindBy(id = "btn_welcome_ok")
+    @iOSFindBy(id = "")
+    private MobileElement btnOk;
+
+    @AndroidFindBy(id = "text_email")
+    @iOSFindBy(id = "")
+    private MobileElement txtEmailConfirm;
+
+    //Muda o ID no Android
+    @iOSFindBy(id = "")
+    private MobileElement btnVoltar;
+
+
     public AutoCadastroPage() {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
@@ -144,15 +209,16 @@ public class AutoCadastroPage {
             btnJuridica.click();
         }
         swipper.verticalSwipe(scrollView);
-        MobileElement openSpinnerBanco = (MobileElement) driver.findElementById("spinner_esqueci_senha_banco");
-        MobileElement openSpinnerTipoConta = (MobileElement) driver.findElementById("spinner_esqueci_minha_conta");
+//        MobileElement openSpinnerBanco = (MobileElement) driver.findElementById("spinner_esqueci_senha_banco");
+//        MobileElement openSpinnerTipoConta = (MobileElement) driver.findElementById("spinner_esqueci_minha_conta");
         openSpinnerBanco.click();
-        MobileElement spinnerBancoBody = (MobileElement) driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView");
+//        MobileElement spinnerBancoBody = (MobileElement) driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView");
         String txtBanco = "";
         int cont = 1;
         MobileElement elementoBanco = null;
         do {
             try {
+                //=======================AQUI VAI TER QUE COLOCAR IF, NÃO TEM JEITO=============================//
                 elementoBanco = (MobileElement) driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[" + cont + "]");
                 cont++;
                 txtBanco = elementoBanco.getText();
@@ -164,49 +230,45 @@ public class AutoCadastroPage {
         elementoBanco.click();
         openSpinnerTipoConta.click();
         if (tipoConta.toLowerCase().equals("cc")) {
-            MobileElement btnTipoConta = (MobileElement) driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[2]");
-            btnTipoConta.click();
+//            MobileElement btnTipoConta = (MobileElement) driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[2]");
+            btnTipoContaCc.click();
         } else {
-            MobileElement btnTipoConta = (MobileElement) driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[3]");
-            btnTipoConta.click();
+//            MobileElement btnTipoConta = (MobileElement) driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[3]");
+            btnTipoContaCp.click();
         }
-        MobileElement txtAgencia = (MobileElement) driver.findElementById("edit_text_esqueci_senha_agencia");
-        MobileElement txtConta = (MobileElement) driver.findElementById("edit_text_esqueci_senha_numero_conta");
-        MobileElement txtDigito = (MobileElement) driver.findElementById("edit_text_esqueci_senha_digito_conta");
+//        MobileElement txtAgencia = (MobileElement) driver.findElementById("edit_text_esqueci_senha_agencia");
+//        MobileElement txtConta = (MobileElement) driver.findElementById("edit_text_esqueci_senha_numero_conta");
+//        MobileElement txtDigito = (MobileElement) driver.findElementById("edit_text_esqueci_senha_digito_conta");
         txtAgencia.setValue(agencia);
         txtConta.setValue(nConta);
         txtDigito.setValue(digitoConta);
     }
 
     public void preencherDadosCartao(String cardNumber) throws InterruptedException {
-        //A scroll view é o componente aonde estao esses dados, sempre que precisar descer a tela, tem que usar o swipper nela
-        MobileElement scrollView = (MobileElement) driver.findElementById("layout_scroll_view");
         swipper.verticalSwipe(scrollView);
-        MobileElement txtEc = (MobileElement) driver.findElementById("edit_text_stablishment");
         txtEc.setValue(ec);
-        MobileElement btnPrePago = (MobileElement) driver.findElementById("button_dados_digital");
+//        MobileElement btnPrePago = (MobileElement) driver.findElementById("button_dados_digital");
+//        MobileElement txtCardNumber = (MobileElement) driver.findElementById("edit_text_serie_number");
         btnPrePago.click();
-        MobileElement txtCardNumber = (MobileElement) driver.findElementById("edit_text_serie_number");
         txtCardNumber.setValue(cardNumber);
     }
 
 
     public void deAcordo() throws InterruptedException {
-        MobileElement scrollView = (MobileElement) driver.findElementById("layout_scroll_view");
         swipper.verticalSwipe(scrollView);
-        MobileElement checkDeAcordo = (MobileElement) driver.findElementById("checkBoxConfirmTerms");
+//        MobileElement checkDeAcordo = (MobileElement) driver.findElementById("checkBoxConfirmTerms");
         checkDeAcordo.click();
     }
 
     public void pressBtnConfirmar() {
-        MobileElement btnConfirmar = (MobileElement) driver.findElementById("buttonConfirm");
+//        MobileElement btnConfirmar = (MobileElement) driver.findElementById("buttonConfirm");
         btnConfirmar.click();
     }
 
     public void preencherUsuario() {
         if (tipoCadastro.contains("não")) {
             driver.hideKeyboard();
-            MobileElement txtUsuario = (MobileElement) driver.findElementById("edit_text_user");
+//            MobileElement txtUsuario = (MobileElement) driver.findElementById("edit_text_user");
             txtUsuario.setValue("cielomult");
         }
     }
@@ -214,21 +276,20 @@ public class AutoCadastroPage {
     public void pressBtnOk() {
         if (tipoCadastro.contains("não")) {
             driver.hideKeyboard();
-            MobileElement btnOk = (MobileElement) driver.findElementById("btn_welcome_ok");
+//            MobileElement btnOk = (MobileElement) driver.findElementById("btn_welcome_ok");
             btnOk.click();
         }
     }
 
     public void verificaTelaEmail() {
-        MobileElement txtEmail = (MobileElement) driver.findElementById("text_email");
-        Assert.assertEquals(email, txtEmail.getText());
+//        MobileElement txtEmail = (MobileElement) driver.findElementById("text_email");
+        Assert.assertEquals(email, txtEmailConfirm.getText());
     }
 
     public void pressBtnVoltar() {
-        MobileElement btnVoltar = null;
         if (deviceName.contains("moto") || deviceName.contains("s8") || deviceName.contains("farm")) {
             btnVoltar = (MobileElement) driver.findElementByAccessibilityId("Navegar para cima");
-        } else {
+        } else if (!deviceName.contains("phone")){
             btnVoltar = (MobileElement) driver.findElementByAccessibilityId("Navigate up");
         }
         btnVoltar.click();

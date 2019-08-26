@@ -22,7 +22,7 @@ Funcionalidade: Auto cadastro
   @PfCc
     Exemplos:
       | tipo_cadastro | EC         | tipo_pessoa | banco | tipo_conta | agencia | n_conta   | digito |
-      | migrado       | 2006080932 | PF          | 237   | CC         | 03129   | 000883027 | 4      |
+#      | migrado       | 2006080932 | PF          | 237   | CC         | 03129   | 000883027 | 4      |
 #      | migrado       | 2006080940 | PF          | 237   | CC         | 06471   | 001781314 | 5      |
   @PfCp
     Exemplos:
@@ -31,7 +31,7 @@ Funcionalidade: Auto cadastro
   @PjCc
     Exemplos:
       | tipo_cadastro | EC         | tipo_pessoa | banco | tipo_conta | agencia | n_conta   | digito |
-#      | migrado       | 2006074908 | PJ          | 237   | CC         | 02345   | 103905949 | 1      |
+      | migrado       | 2006074908 | PJ          | 237   | CC         | 02345   | 103905949 | 1      |
 #      | migrado       | 2006074916 | PJ          | 237   | CC         | 02345   | 103905950 | 5      |
 #      | migrado       | 2006074924 | PJ          | 237   | CC         | 02345   | 103905951 | 3      |
 
