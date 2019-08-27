@@ -3,7 +3,7 @@
 Funcionalidade: Auto cadastro
 
   Contexto:
-    Dado que eu estou usando o aparelho "emulator"
+    Dado que eu estou usando o aparelho "Emulator"
     Quando eu estiver na tela de Login
     E eu selecionar o botão Criar Usuario
     Então a tela do Auto Cadastro deve ser exibida
@@ -22,7 +22,7 @@ Funcionalidade: Auto cadastro
   @PfCc
     Exemplos:
       | tipo_cadastro | EC         | tipo_pessoa | banco | tipo_conta | agencia | n_conta   | digito |
-#      | migrado       | 2006080932 | PF          | 237   | CC         | 03129   | 000883027 | 4      |
+      | migrado       | 2006080932 | PF          | 237   | CC         | 03129   | 000883027 | 4      |
 #      | migrado       | 2006080940 | PF          | 237   | CC         | 06471   | 001781314 | 5      |
   @PfCp
     Exemplos:

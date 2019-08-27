@@ -51,7 +51,7 @@ public class AppiumController {
         this.setDefaultTimeOut();
     }
 
-    public void stopDriver() {
+    public static void stopDriver() {
         if (driver != null) {
             driver.quit();
             driver = null;

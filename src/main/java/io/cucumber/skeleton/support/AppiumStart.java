@@ -1,10 +1,10 @@
 package io.cucumber.skeleton.support;
 
 import cucumber.api.Scenario;
-import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import io.cucumber.skeleton.pages.BasePage;
 import org.apache.commons.io.FileUtils;
+import org.junit.After;
 import org.junit.AfterClass;
 import org.openqa.selenium.OutputType;
 
@@ -33,8 +33,6 @@ public class AppiumStart {
     }
 
 
-    //============Remover as Tags por enquanto dependendo de quem for rodar===========================//
-//    @Before
     public void beforeScenarioStart() {
         appiumController = new AppiumController(deviceName);
         try {
@@ -45,8 +43,8 @@ public class AppiumStart {
         }
     }
 
-    //============Remover as Tags por enquanto dependendo de quem for rodar===========================//
-//    @After
+    //============Precisa fazer rodar===========================//
+    @After
     public void afterScenarioFinish(Scenario scenario) throws IOException {
         if (scenario.isFailed()) {
             File file = driver.getScreenshotAs(OutputType.FILE);

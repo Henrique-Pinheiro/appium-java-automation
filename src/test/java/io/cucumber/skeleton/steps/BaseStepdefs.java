@@ -21,10 +21,9 @@ public class BaseStepdefs {
         basePage = new BasePage();
     }
 
-
-
     @Dado("que eu estou na tela de Login")
     public void queEuEstouNaTelaDeLogin() {
+        basePage = new BasePage();
         Assert.assertTrue("A pagina de login não está sendo exibida", basePage.checkLoginPage());
     }
 
