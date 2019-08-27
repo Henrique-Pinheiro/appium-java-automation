@@ -1,11 +1,18 @@
 package io.cucumber.skeleton.support;
 
+import cucumber.api.Scenario;
+import cucumber.api.java.After;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
+import org.apache.commons.io.FileUtils;
+import org.junit.AfterClass;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
@@ -25,9 +32,9 @@ public class AppiumController {
 
     public void startDriver() throws MalformedURLException {
         Devices devices = new Devices();
-        if (deviceName.contains("farm")){
+        if (deviceName.contains("farm")) {
             appiumURL = new URL("http://10.64.234.8:8080/wd/hub");
-        }else{
+        } else {
             appiumURL = new URL("http://localhost:4723/wd/hub");
         }
         DesiredCapabilities capabilities = devices.returnCaps(deviceName);
@@ -44,7 +51,7 @@ public class AppiumController {
         this.setDefaultTimeOut();
     }
 
-    public void stopDriver() {
+    public static void stopDriver() {
         if (driver != null) {
             driver.quit();
             driver = null;
@@ -56,5 +63,7 @@ public class AppiumController {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
-
+    public AppiumDriver getDriver() {
+        return driver;
+    }
 }

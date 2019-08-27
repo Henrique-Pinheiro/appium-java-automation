@@ -39,7 +39,7 @@ Funcionalidade: Auto cadastro
     Exemplos:
       | tipo_cadastro | EC | tipo_pessoa | banco | tipo_conta | agencia | n_conta | digito |
 
-  @massa
+  @done
   Esquema do Cenário: Cadastro de usuário com cartão pré-pago
     Dado que eu deseje realizar um cadastro do tipo <tipo_cadastro> utilizando o EC <EC>
     E que eu preencha os dados cadastrais

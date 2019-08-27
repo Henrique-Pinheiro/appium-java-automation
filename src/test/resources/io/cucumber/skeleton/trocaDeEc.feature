@@ -22,7 +22,7 @@ Funcionalidade: Troca de EC
     Dado que eu realize Login informando o Ec ou CPF ou Email <EcCpfEmail>, o usuário, opcional, <usuario> e a senha <senha>
     E selecionar a opção Trocar de Estabelecimento no Menu Lateral
     Quando eu realizar uma busca com os seguintes dados invalidos:
-      | 2006005263            |
+      | 2006 005263            |
       | Massa Dados Invalidos |
     Então as buscas não devem retornar resultados
     Exemplos:
@@ -41,7 +41,7 @@ Funcionalidade: Troca de EC
       | EcCpfEmail | usuario    | senha        | EC         |
       | 2006005264 | 2006095565 | s@2006095565 | 2006005264 |
       | 2006005264 | 2006095565 | s@2006095565 | 2006005310 |
-      | 2006005264 | 2006095565 | s@2006095565 | 2006005299 |
-      | 2006005264 | 2006095565 | s@2006095565 | 2006005280 |
-      | 2006005264 | 2006095565 | s@2006095565 | 2006005302 |
-      | 2006005264 | 2006095565 | s@2006095565 | 2006005272 |
+#      | 2006005264 | 2006095565 | s@2006095565 | 2006005299 |
+#      | 2006005264 | 2006095565 | s@2006095565 | 2006005280 |
+#      | 2006005264 | 2006095565 | s@2006095565 | 2006005302 |
+#      | 2006005264 | 2006095565 | s@2006095565 | 2006005272 |

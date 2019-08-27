@@ -4,12 +4,9 @@ import io.appium.java_client.MobileElement;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
-
 import java.time.Duration;
 import java.util.Arrays;
-
-import static io.cucumber.skeleton.pages.BasePage.appiumController;
-
+import static io.cucumber.skeleton.support.AppiumController.driver;
 
 public class Swipper {
 
@@ -26,7 +23,7 @@ public class Swipper {
         dragNDrop.addAction(finger.createPointerMove(Duration.ofMillis(600),
                 PointerInput.Origin.viewport(), source.getX() / 2, source.y / 2));
         dragNDrop.addAction(finger.createPointerUp(PointerInput.MouseButton.MIDDLE.asArg()));
-        appiumController.driver.perform(Arrays.asList(dragNDrop));
+        driver.perform(Arrays.asList(dragNDrop));
     }
 
 }

@@ -3,10 +3,18 @@ package io.cucumber.skeleton.pages;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+
+import static io.cucumber.skeleton.support.AppiumController.driver;
+
+import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.pagefactory.*;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.cucumber.skeleton.support.AppiumController;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.support.PageFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,81 +23,80 @@ import java.net.MalformedURLException;
 public class BasePage {
 
     //=========================ESPECIFICAR AQUI O NOME DO DEVICE QUE DEVE SER TESTADO==========================================================//
-    protected static String deviceName = "samsung s8";
 
-    public static String getDeviceName() {
-        return deviceName;
+    public BasePage() {
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    public static AppiumController appiumController = new AppiumController(deviceName);
+    @AndroidFindBy(id = "textInputEditNewLogin")
+    @iOSFindBy(id = "")
+    private MobileElement firstTxtField;
 
-    //============Remover as Tags por enquanto dependendo de quem for rodar===========================//
-    @Before
-    public void beforeScenarioStart() {
-        try {
-            appiumController.startDriver();
-        } catch (MalformedURLException e) {
-            System.out.println("Deu ruim no Appium");
-            e.printStackTrace();
-        }
-    }
+    @AndroidFindBy(id = "btnJump")
+    @iOSFindBy(id = "")
+    private MobileElement btnJump;
 
-    //============Remover as Tags por enquanto dependendo de quem for rodar===========================//
-    @After
-    public void afterScenarioFinish(Scenario scenario) throws IOException {
-        if (scenario.isFailed()) {
-            File file = appiumController.driver.getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(file, new File("/Users/t1409hnr/Desktop/System-Testing/cucumber-java-skeleton/target/prints/"+ java.time.LocalDate.now() + "-run/" + scenario.getName() + ".png"));
-        }
-        appiumController.stopDriver();
-    }
+    @AndroidFindBy(id = "textLoginLabel")
+    @iOSFindBy(id = "")
+    private MobileElement txtLoginLabel;
+
+    @AndroidFindBy(id = "buttonLoginNext")
+    @iOSFindBy(id = "")
+    private MobileElement btnProximo;
+
+    @AndroidFindBy(id = "buttonNewLoginUserEnter")
+    @iOSFindBy(id = "")
+    private MobileElement btnLogin;
+
+    @AndroidFindBy(id = "textInputEditLoginUsername")
+    @iOSFindBy(id = "")
+    private MobileElement userField;
+
+    @AndroidFindBy(id = "textInputEditLoginPassword")
+    @iOSFindBy(id = "")
+    private MobileElement passField;
 
 
-    public static boolean checkLoginPage() {
-//        appiumController.driver.hideKeyboard();
-        MobileElement btnJump = (MobileElement) appiumController.driver.findElementById("btnJump");
+
+    public boolean checkLoginPage() {
+//        MobileElement btnJump = (MobileElement) driver.findElementById("btnJump");
         if (btnJump.isDisplayed()) {
             btnJump.click();
         }
-        MobileElement txtLoginLabel = (MobileElement) appiumController.driver.findElementById("textLoginLabel");
+//        MobileElement txtLoginLabel = (MobileElement) driver.findElementById("textLoginLabel");
         return txtLoginLabel.isDisplayed();
     }
 
-    public static boolean checkLoginPageAgain() {
-        MobileElement txtLoginLabel = (MobileElement) appiumController.driver.findElementById("textLoginLabel");
+    public boolean checkLoginPageAgain() {
+//        MobileElement txtLoginLabel = (MobileElement) driver.findElementById("textLoginLabel");
         return txtLoginLabel.isDisplayed();
 
     }
 
-    public static void fillFirstLoginField(String emailEcOrCpf) {
-        MobileElement firstTxtField = (MobileElement) appiumController.driver.findElementById("textInputEditNewLogin");
+    public void fillFirstLoginField(String emailEcOrCpf) {
+//        MobileElement firstTxtField = (MobileElement) driver.findElementById("textInputEditNewLogin");
         firstTxtField.setValue(emailEcOrCpf);
-//        appiumController.driver.hideKeyboard();
     }
 
-    public static void clickBtnPoximo() {
-//        appiumController.driver.hideKeyboard();
-        MobileElement btnProximo = (MobileElement) appiumController.driver.findElementById("buttonLoginNext");
+    public void clickBtnPoximo() {
+//        MobileElement btnProximo = (MobileElement) driver.findElementById("buttonLoginNext");
         btnProximo.click();
     }
 
     public void clickBtnLogin() {
-//        appiumController.driver.hideKeyboard();
-        MobileElement btnLogin = (MobileElement) appiumController.driver.findElementById("buttonNewLoginUserEnter");
+//        MobileElement btnLogin = (MobileElement) driver.findElementById("buttonNewLoginUserEnter");
         btnLogin.click();
     }
 
-    public static void fillUser(String user) {
+    public void fillUser(String user) {
         if (!(user.isEmpty())) {
-//            appiumController.driver.hideKeyboard();
-            MobileElement userField = (MobileElement) appiumController.driver.findElementById("textInputEditLoginUsername");
+//            MobileElement userField = (MobileElement) driver.findElementById("textInputEditLoginUsername");
             userField.setValue(user);
         }
     }
 
-    public static void fillPass(String password) {
-//        appiumController.driver.hideKeyboard();
-        MobileElement passField = (MobileElement) appiumController.driver.findElementById("textInputEditLoginPassword");
+    public void fillPass(String password) {
+//        MobileElement passField = (MobileElement) driver.findElementById("textInputEditLoginPassword");
         passField.setValue(password);
     }
 

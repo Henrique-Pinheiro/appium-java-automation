@@ -13,6 +13,7 @@ public class TrocaDeEcSteps {
     private BaseStepdefs baseSteps = new BaseStepdefs();
     private LoginSteps loginSteps = new LoginSteps();
     private TrocaDeEcPage trocaDeEc = new TrocaDeEcPage();
+    private HamburguerMenu hbgMenu = new HamburguerMenu();
     private int numBuscas = 0;
     private String ec = "";
     private List<String> ecsList = null;
@@ -26,9 +27,8 @@ public class TrocaDeEcSteps {
 
     @E("selecionar a opção Trocar de Estabelecimento no Menu Lateral")
     public void selecionarAOpçãoTrocarDeEstabelecimentoNoMenuLateral() {
-        HamburguerMenu hbgMenu = new HamburguerMenu();
         hbgMenu.openHbgMenu();
-        HamburguerMenu.setCurrentEc();
+        hbgMenu.setCurrentEc();
         trocaDeEc.openTrocaDeEc();
     }
 
@@ -74,8 +74,8 @@ public class TrocaDeEcSteps {
 
     @Então("esse EC deve ser exibido no Menu Lateral")
     public void esseECDeveSerExibidoNoMenuLateral() {
-        HamburguerMenu.openHbgMenu();
-        HamburguerMenu.setCurrentEc();
+        hbgMenu.openHbgMenu();
+        hbgMenu.setCurrentEc();
         Assert.assertEquals(ec, HamburguerMenu.getCurrentEc());
     }
 
