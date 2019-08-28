@@ -1,9 +1,6 @@
 package io.cucumber.skeleton.steps;
 
-import cucumber.api.java.pt.Dado;
-import cucumber.api.java.pt.E;
-import cucumber.api.java.pt.Então;
-import cucumber.api.java.pt.Quando;
+import cucumber.api.java.pt.*;
 import io.cucumber.skeleton.pages.HamburguerMenu;
 import io.cucumber.skeleton.pages.HomePage;
 import io.cucumber.skeleton.pages.LoginPage;
@@ -16,6 +13,7 @@ public class LoginSteps {
     private BasePage basePage = new BasePage();
     private LoginPage androidLogin = new LoginPage();
     private HomePage homePage = new HomePage();
+    private HamburguerMenu hbgMenu = new HamburguerMenu();
     private String user = "";
 
     @E("preencho o campo de Login com {string}")
@@ -94,4 +92,5 @@ public class LoginSteps {
         preencherOCampoUsuárioCom(user);
         oCampoSenhaCom(senha);
     }
+
 }

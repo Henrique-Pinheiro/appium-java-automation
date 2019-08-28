@@ -39,6 +39,10 @@ public class HamburguerMenu {
     @iOSFindBy(id = "")
     private MobileElement hbgMenuEc;
 
+    @AndroidFindBy(id = "textview_menu_cadastro")
+    @iOSFindBy(id = "")
+    private MobileElement hbgMenuMeuCadastro;
+
     public void sair() throws InterruptedException {
         openHbgMenu();
 //        MobileElement hbgMenu = (MobileElement) driver.findElementById("layout_menu_logado");
@@ -49,8 +53,13 @@ public class HamburguerMenu {
     }
 
     public void openHbgMenu() {
-        MobileElement hbgMenuBtn = (MobileElement) driver.findElementByAccessibilityId("Open navigation drawer");
+//        MobileElement hbgMenuBtn = (MobileElement) driver.findElementByAccessibilityId("Open navigation drawer");
         hbgMenuBtn.click();
+    }
+
+    public void openMeuCadastro(){
+        openHbgMenu();
+        hbgMenuMeuCadastro.click();
     }
 
     public void setCurrentEc() {

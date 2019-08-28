@@ -258,6 +258,7 @@ public class AutoCadastroPage {
         swipper.verticalSwipe(scrollView);
 //        MobileElement checkDeAcordo = (MobileElement) driver.findElementById("checkBoxConfirmTerms");
         checkDeAcordo.click();
+        System.out.println(cpf + " " + senha);
     }
 
     public void pressBtnConfirmar() {

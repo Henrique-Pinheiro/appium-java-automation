@@ -30,9 +30,9 @@ public class HomePage {
     private MobileElement chatBtn;
 
 
-
+//TEM QUE TENTAR REFATORAR AGORA QUE TEM PAGEFACTORY PARA VER SE DA PARA SER MAIS RAPIDO
     public boolean checkHomePage() {
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+//        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         try {
             try {
 //                MobileElement btnFehcar2 = (MobileElement) driver.findElementById("btn_rm_close");
@@ -51,4 +51,6 @@ public class HomePage {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         return chatBtn.isDisplayed();
     }
+
+
 }
