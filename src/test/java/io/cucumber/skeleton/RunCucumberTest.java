@@ -15,6 +15,6 @@ import java.io.IOException;
 import static io.cucumber.skeleton.support.AppiumController.driver;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = {"src/test/resources/io/cucumber/skeleton"}, plugin = {"json:target/jsonReports/CucumberReport.json"}, tags = "@done")
+@CucumberOptions(features = {"src/test/resources/io/cucumber/skeleton"}, plugin = {"json:target/jsonReports/CucumberReport.json"}, tags = "@doing")
 public class RunCucumberTest {
 }

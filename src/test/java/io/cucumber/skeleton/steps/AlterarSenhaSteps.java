@@ -1,9 +1,11 @@
 package io.cucumber.skeleton.steps;
 
+import cucumber.api.CucumberOptions;
 import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Mas;
 import cucumber.api.java.pt.Quando;
+import gherkin.events.CucumberEvent;
 import io.cucumber.skeleton.pages.HamburguerMenu;
 import io.cucumber.skeleton.pages.MeuCadastroPage;
 import org.junit.Assert;

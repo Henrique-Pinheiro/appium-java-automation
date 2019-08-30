@@ -85,4 +85,5 @@ public class TrocaDeEcSteps {
         loginSteps.euRealizarLoginInformandoOEcOuCPFOuEmailEcCpfEmailOUsuárioOpcionalUsuarioEASenhaSenha(ec, user, pass);
         loginSteps.aoPressionarOBotãoEntrarATelaHomeDeveSerExibida();
     }
+
 }

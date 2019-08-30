@@ -53,6 +53,19 @@ public class MeuCadastroPage {
     @iOSFindBy(id = "")
     private MobileElement popUpMsg;
 
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.widget.ScrollView/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout[1]/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.TextView")
+    @iOSFindBy(id = "")
+    private MobileElement errorSenhaAtual;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.widget.ScrollView/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout[1]/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.TextView")
+    @iOSFindBy(id = "")
+    private MobileElement errorNovaSenha1;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.widget.ScrollView/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout[1]/android.view.ViewGroup/android.widget.LinearLayout[3]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.TextView")
+    @iOSFindBy(id = "")
+    private MobileElement errorNovaSenha2;
+
+
 
     public boolean checkMeuCadastro() {
         return meuCadastroTitle.isDisplayed();
@@ -76,9 +89,21 @@ public class MeuCadastroPage {
     }
 
     public void fillPasswords(String actualPass, String newPass) {
-        txtOldPassword.setValue(actualPass);
-        txtNewPassword1.setValue(newPass);
-        txtNewPassword2.setValue(newPass);
+        fillOldPassword(actualPass);
+        fillNewPassword1(newPass);
+        fillNewPassword2(newPass);
+    }
+
+    public void fillOldPassword(String pass){
+        txtOldPassword.setValue(pass);
+    }
+
+    public void fillNewPassword1(String pass){
+        txtNewPassword1.setValue(pass);
+    }
+
+    public void fillNewPassword2(String pass){
+        txtNewPassword2.setValue(pass);
     }
 
     public void clickBtnSalvar() throws InterruptedException {
@@ -90,4 +115,5 @@ public class MeuCadastroPage {
     public String getPopUpMsgText() {
         return popUpMsg.getText();
     }
+
 }
