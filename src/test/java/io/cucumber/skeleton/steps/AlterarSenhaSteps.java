@@ -22,7 +22,7 @@ public class AlterarSenhaSteps {
 
     @Quando("eu selecionar a opção Usuário no menu superior")
     public void euSelecionarAOpçãoUsuárioNoMenuSuperior() {
-//Ainda não tem
+        meuCadastro.clickBtnUsuario();
     }
 
     @Então("a tela com os dados de usuário for exibida")

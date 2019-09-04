@@ -7,9 +7,7 @@ import io.appium.java_client.pagefactory.iOSFindBy;
 import io.cucumber.skeleton.support.Swipper;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.support.PageFactory;
-
 import java.util.concurrent.TimeUnit;
-
 import static io.cucumber.skeleton.support.AppiumController.driver;
 
 public class MeuCadastroPage {
@@ -45,7 +43,7 @@ public class MeuCadastroPage {
     @iOSFindBy(id = "")
     private MobileElement txtNewPassword2;
 
-    @AndroidFindBy(id = "btn_change_pass")
+    @AndroidFindBy(id = "btn_du_salve")
     @iOSFindBy(id = "")
     private MobileElement btnSalvar;
 
@@ -65,7 +63,9 @@ public class MeuCadastroPage {
     @iOSFindBy(id = "")
     private MobileElement errorNovaSenha2;
 
-
+    @AndroidFindBy(accessibility = "USUÁRIO")
+    @iOSFindBy(id = "")
+    private MobileElement btnUser;
 
     public boolean checkMeuCadastro() {
         return meuCadastroTitle.isDisplayed();
@@ -116,4 +116,7 @@ public class MeuCadastroPage {
         return popUpMsg.getText();
     }
 
+    public void clickBtnUsuario() {
+        btnUser.click();
+    }
 }
