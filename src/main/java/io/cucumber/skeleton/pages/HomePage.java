@@ -30,25 +30,15 @@ public class HomePage {
     private MobileElement chatBtn;
 
 
-//TEM QUE TENTAR REFATORAR AGORA QUE TEM PAGEFACTORY PARA VER SE DA PARA SER MAIS RAPIDO
+    //TEM QUE TENTAR REFATORAR AGORA QUE TEM PAGEFACTORY PARA VER SE DA PARA SER MAIS RAPIDO
     public boolean checkHomePage() {
-//        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         try {
-            try {
-//                MobileElement btnFehcar2 = (MobileElement) driver.findElementById("btn_rm_close");
-                while (btFechar2.isDisplayed()) {
-                    btFechar2.click();
-                }
-            } catch (WebDriverException ignored) {
+            driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+            if (btFechar2.isDisplayed()) {
+                btFechar2.click();
             }
-//            MobileElement btnFechar = (MobileElement) driver.findElementById("btnRight");
-            while (btnFechar.isDisplayed()) {
-                btnFechar.click();
-            }
-        } catch (WebDriverException ignored) {
-        }
-//        MobileElement chatBtn = (MobileElement) driver.findElementById("icon_chat");
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        }catch(WebDriverException ignored){}
+        btnFechar.click();
         return chatBtn.isDisplayed();
     }
 

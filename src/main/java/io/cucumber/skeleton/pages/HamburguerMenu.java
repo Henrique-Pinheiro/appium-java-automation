@@ -43,6 +43,10 @@ public class HamburguerMenu {
     @iOSFindBy(id = "")
     private MobileElement hbgMenuMeuCadastro;
 
+    @AndroidFindBy(id = "textLinkPayment")
+    @iOSFindBy(id = "")
+    private MobileElement hbgMenuPagamentoPorLink;
+
     public void sair() throws InterruptedException {
         openHbgMenu();
 //        MobileElement hbgMenu = (MobileElement) driver.findElementById("layout_menu_logado");
@@ -70,5 +74,10 @@ public class HamburguerMenu {
 
     public static String getCurrentEc() {
         return currentEc;
+    }
+
+    public void openPagamentoPorLink() {
+        openHbgMenu();
+        hbgMenuPagamentoPorLink.click();
     }
 }
