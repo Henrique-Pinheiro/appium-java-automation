@@ -258,6 +258,12 @@ public class AutoCadastroPage {
         swipper.verticalSwipe(scrollView);
 //        MobileElement checkDeAcordo = (MobileElement) driver.findElementById("checkBoxConfirmTerms");
         checkDeAcordo.click();
+        System.out.println(cpf + " " + senha);
+        System.out.println("ec" + ec);
+        System.out.println("nomeCompleto" + nomeCompleto);
+        System.out.println("email" + email);
+//        System.out.println("cpf" + cpf);
+//        System.out.println("senha" + senha);
     }
 
     public void pressBtnConfirmar() {
@@ -287,7 +293,7 @@ public class AutoCadastroPage {
     }
 
     public void pressBtnVoltar() {
-        if (deviceName.contains("moto") || deviceName.contains("s8") || deviceName.contains("farm")) {
+        if (deviceName.contains("moto") || deviceName.contains("s8") || deviceName.contains("farm") || deviceName.contains("s7")) {
             btnVoltar = (MobileElement) driver.findElementByAccessibilityId("Navegar para cima");
         } else if (!deviceName.contains("phone")){
             btnVoltar = (MobileElement) driver.findElementByAccessibilityId("Navigate up");

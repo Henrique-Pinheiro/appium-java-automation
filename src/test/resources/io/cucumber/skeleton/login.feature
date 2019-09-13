@@ -59,12 +59,12 @@ Funcionalidade: Login
   Esquema do Cenario: Realizar Login no App selecionando a Opçao Salvar dados
     Dado que eu estou na tela de Login
     Quando eu realizar Login informando <EC>, <usuario>, <senha> com a opção Salvar Dados selecionada
-    Então ao sair do App, os campos <EC> e <usuario> devem continuar preenchidos na Tela de Login
+#    Então ao sair do App, os campos <EC> e <usuario> devem continuar preenchidos na Tela de Login
 
     Exemplos:
       | EC         | usuario    | senha        |
       | 2007700179 | 2007700179 | 654321       |
-      | 2006005485 | 2006005485 | s@2006005485 |
+#      | 2006005485 | 2006005485 | s@2006005485 |
 
   @done
   Esquema do Cenario: Realizar multiplos Logins no App
