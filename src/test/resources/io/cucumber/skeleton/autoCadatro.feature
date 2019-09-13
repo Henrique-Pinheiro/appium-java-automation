@@ -31,7 +31,7 @@ Funcionalidade: Auto cadastro
   @PjCc
     Exemplos:
       | tipo_cadastro | EC         | tipo_pessoa | banco | tipo_conta | agencia | n_conta   | digito |
-#      | migrado       | 2006074908 | PJ          | 237   | CC         | 02345   | 103905949 | 1      |
+      | migrado       | 2006074908 | PJ          | 237   | CC         | 02345   | 103905949 | 1      |
 #      | migrado       | 2006074916 | PJ          | 237   | CC         | 02345   | 103905950 | 5      |
 #      | migrado       | 2006074924 | PJ          | 237   | CC         | 02345   | 103905951 | 3      |
 

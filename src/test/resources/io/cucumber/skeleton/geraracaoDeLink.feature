@@ -1,6 +1,6 @@
 #language: pt
 
-Funcionalidade: Pagamen to por Link - APPN-1077
+Funcionalidade: Pagamento por Link - APPN-1077
   Eu, como usuário do app Cielo, quero gerar e consultar links para enviar aos clientes, para que eles possam fazer o pagamento do produto através desse link.
 
   Contexto:
