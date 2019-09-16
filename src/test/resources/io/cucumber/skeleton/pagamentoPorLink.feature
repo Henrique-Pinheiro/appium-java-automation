@@ -120,5 +120,23 @@ Funcionalidade: Pagamento por Link - APPN-1077
       | EC         | usuario    | senha  |
       | 2000463023 | 2000463023 | 123456 |
 
-#2000463023
-#  123456
+  @doing
+  Esquema do Cenário: FAQ Pagamento Por Link
+    Dado que eu realize Login informando o Ec ou CPF ou Email <EcCpfEmail>, o usuário, opcional, <usuario> e a senha <senha>
+    E eu selecionar a opção Pagamento por Link no Menu Lateral
+    E a tela Pagamento por Link for exibida
+    E eu pressionar o Botão Central de Ajuda
+    Quando 6 respostas forem exibidas
+    E eu selecionar a resposta 1
+    E os detalhes forem exibidos
+    Então ao pressionar o botão fechar a tela pagamento por link deve ser exibida
+
+  @elegivel
+    Exemplos:
+      | EcCpfEmail | usuario    | senha  |
+      | 2000463023 | 2000463023 | 123456 |
+
+  @naoElegivel
+    Exemplos:
+      | EcCpfEmail | usuario    | senha        |
+      | 2006005264 | 2006095565 | s@2006095565 |
