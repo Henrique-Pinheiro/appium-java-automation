@@ -5,6 +5,9 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 
@@ -15,10 +18,14 @@ public class ApiController {
     protected static String ENDPOINT_POST_LOGIN = "http://apollo-core-ecscluster-hml-1454189126.sa-east-1.elb.amazonaws.com/api/apollo/user-login/v1/token";
     protected static String ENDPOINT_GET_LINK_PAGAMENTOS = "https://apihom.cielo.com.br/appcielo/v1/ecommerce/payment/link?size=1000&page=1";
     protected static String ENDPOINT_POST_NEW_LINK = "https://apihom.cielo.com.br/appcielo/v1/ecommerce/payment/link";
+    protected static String ENDPOINT_GET_HELP_CENTER = "https://apihom.cielo.com.br/appcielo/v1/help/help-center";
 
     private String token = "";
+    private String ec;
+    private String username;
+    private String password;
 
-    private void setToken(String ec, String username, String password) {
+    public void setToken(String ec, String username, String password) {
         baseURI = ENDPOINT_POST_LOGIN;
         RequestSpecification request = given();
         JSONObject requestParams = new JSONObject();
@@ -29,11 +36,11 @@ public class ApiController {
         request.body(requestParams.toString());
         Response response = request.post();
         JsonPath json = response.jsonPath();
-        this.token = json.get("access_token").toString();
+//        response.prettyPrint();
+        token = json.get("access_token").toString();
     }
 
-    public void deleteAllLinks(String ec, String username, String password){
-        setToken(ec, username, password);
+    public void deleteAllLinks() {
         baseURI = ENDPOINT_GET_LINK_PAGAMENTOS;
         RequestSpecification request = given();
         JSONObject requestParams = new JSONObject();
@@ -53,7 +60,7 @@ public class ApiController {
         }
     }
 
-    private void deleteLink(String id){
+    private void deleteLink(String id) {
         baseURI = ENDPOINT_DELETE_LINK_PAGAMENTO;
         RequestSpecification request = given();
         JSONObject requestParams = new JSONObject();
@@ -68,8 +75,7 @@ public class ApiController {
 //        JsonPath json = response.jsonPath();
     }
 
-    public void createLink(String ec, String username, String password, String linkName, int linkValue){
-        setToken(ec, username, password);
+    public void createLink(String linkName, int linkValue) {
         baseURI = ENDPOINT_POST_NEW_LINK;
         RequestSpecification request = given();
         JSONObject requestParams = new JSONObject();
@@ -84,4 +90,5 @@ public class ApiController {
         JsonPath json = response.jsonPath();
 //        json.prettyPrint();
     }
+
 }

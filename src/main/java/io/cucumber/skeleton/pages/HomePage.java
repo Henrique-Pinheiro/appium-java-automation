@@ -33,7 +33,7 @@ public class HomePage {
     //TEM QUE TENTAR REFATORAR AGORA QUE TEM PAGEFACTORY PARA VER SE DA PARA SER MAIS RAPIDO
     public boolean checkHomePage() {
         try {
-            driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+//            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
             if (btFechar2.isDisplayed()) {
                 btFechar2.click();
             }

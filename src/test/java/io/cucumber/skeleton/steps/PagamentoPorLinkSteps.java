@@ -16,16 +16,10 @@ public class PagamentoPorLinkSteps {
     private PagamentoPorLinkPage pagamentoLink = new PagamentoPorLinkPage();
     private ApiController api = new ApiController();
 
-    private String ec = "";
-    private String user = "";
-    private String pass = "";
-
     @Dado("que eu realize login informando o Ec (.*), o usuário, (.*) e a senha (.*)")
     public void euEstiverLogadoNaTelaHomeComOsDadosECUsuárioESenha(String ec, String user, String pass) {
-        this.ec = ec;
-        this.user = user;
-        this.pass = pass;
-        api.deleteAllLinks(ec, user, pass);
+        api.setToken(ec, user, pass);
+        api.deleteAllLinks();
         baseSteps.queEuEstouNaTelaDeLogin();
         loginSteps.euRealizarLoginInformandoOEcOuCPFOuEmailEcCpfEmailOUsuárioOpcionalUsuarioEASenhaSenha(ec, user, pass);
         loginSteps.aoPressionarOBotãoEntrarATelaHomeDeveSerExibida();
@@ -134,7 +128,7 @@ public class PagamentoPorLinkSteps {
 
     @E("o usuário possua somente um link gerado")
     public void oUsuárioPossuaSomenteUmLinkGerado() {
-        api.createLink(ec, user, pass, "Link Generico", 5000);
+        api.createLink("Link Generico", 5000);
     }
 
     @Quando("eu acessar os detalhes do link na area de Últimos links ativos")
@@ -161,4 +155,32 @@ public class PagamentoPorLinkSteps {
     public void pressionarOBotãoConfirmarDoPopUpExibido() {
         pagamentoLink.clickConfirmarPopUp();
     }
+
+    @E("eu pressionar o Botão Central de Ajuda")
+    public void euPressionarOBotãoCentralDeAjuada() {
+        pagamentoLink.clickFaqBtn();
+    }
+
+    @Quando("{int} respostas forem exibidas")
+    public void respostasForemExibidas(int questions) {
+        Assert.assertEquals(questions, pagamentoLink.returnNumberOfQuestions());
+    }
+
+    @E("eu selecionar a resposta {int}")
+    public void euSelecionarAResposta(int questionNumber) {
+
+        pagamentoLink.openFaqQuestionNumber(questionNumber);
+    }
+
+    @E("os detalhes forem exibidos")
+    public void osDetalhesForemExibidos() {
+    Assert.assertTrue("Os detalhes da resposta não foram exibidos", pagamentoLink.checkQuestionDetail());
+    }
+
+    @Então("ao pressionar o botão fechar a tela pagamento por link deve ser exibida")
+    public void aoPressionarOBotãoFecharATelaPagamentoPorLinkDeveSerExibida() {
+        pagamentoLink.closeFaq();
+        aTelaPagamentoPorLinkForExibida();
+    }
+
 }

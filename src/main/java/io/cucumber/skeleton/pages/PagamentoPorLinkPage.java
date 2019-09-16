@@ -104,6 +104,42 @@ public class PagamentoPorLinkPage {
     @iOSFindBy(id = "")
     private MobileElement btnConfirmarPopUp;
 
+    @AndroidFindBy(id = "action_help")
+    @iOSFindBy(id = "")
+    private MobileElement openFaqBtn;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]")
+    @iOSFindBy(id = "")
+    private MobileElement question1;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]")
+    @iOSFindBy(id = "")
+    private MobileElement question2;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]")
+    @iOSFindBy(id = "")
+    private MobileElement question3;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[4]")
+    @iOSFindBy(id = "")
+    private MobileElement question4;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[5]")
+    @iOSFindBy(id = "")
+    private MobileElement question5;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[6]")
+    @iOSFindBy(id = "")
+    private MobileElement question6;
+
+    @AndroidFindBy(id = "btnLeft")
+    @iOSFindBy(id = "")
+    private MobileElement btnVoltar;
+
+    @AndroidFindBy(id = "btnRight")
+    @iOSFindBy(id = "")
+    private MobileElement closeFaqBtn;
+
     public String getPhoneNumber() {
         return phoneNumberLink.getText();
     }
@@ -207,5 +243,58 @@ public class PagamentoPorLinkPage {
 
     public boolean checkLink() {
         return link.isDisplayed();
+    }
+
+    public void clickFaqBtn() {
+        openFaqBtn.click();
+    }
+
+    public int returnNumberOfQuestions() {
+        int questionsNumber = 0;
+        if (question1.isDisplayed()){
+            questionsNumber++;
+        }if (question2.isDisplayed()){
+            questionsNumber++;
+        }if (question3.isDisplayed()){
+            questionsNumber++;
+        }if (question4.isDisplayed()){
+            questionsNumber++;
+        }if (question5.isDisplayed()){
+            questionsNumber++;
+        }if (question6.isDisplayed()){
+            questionsNumber++;
+        }
+        return questionsNumber;
+    }
+
+    public void openFaqQuestionNumber(int questionNumber) {
+        switch (questionNumber){
+            case 1:
+                question1.click();
+                break;
+            case 2:
+                question2.click();
+                break;
+            case 3:
+                question3.click();
+                break;
+            case 4:
+                question4.click();
+                break;
+            case 5:
+                question5.click();
+                break;
+            case 6:
+                question6.click();
+                break;
+        }
+    }
+
+    public boolean checkQuestionDetail() {
+        return btnVoltar.isDisplayed();
+    }
+
+    public void closeFaq() {
+        closeFaqBtn.click();
     }
 }
