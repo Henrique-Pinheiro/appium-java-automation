@@ -120,7 +120,7 @@ Funcionalidade: Pagamento por Link - APPN-1077
       | EC         | usuario    | senha  |
       | 2000463023 | 2000463023 | 123456 |
 
-  @doing
+  @done
   Esquema do Cenário: FAQ Pagamento Por Link
     Dado que eu realize Login informando o Ec ou CPF ou Email <EcCpfEmail>, o usuário, opcional, <usuario> e a senha <senha>
     E eu selecionar a opção Pagamento por Link no Menu Lateral
