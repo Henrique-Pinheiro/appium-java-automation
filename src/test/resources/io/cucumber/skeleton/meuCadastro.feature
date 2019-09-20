@@ -16,8 +16,8 @@ Funcionalidade: Meu cadastro - Tela que exibe os Dados do estabelecimento, usuá
     Quando eu estiver com a opção "ESTABELECIMENTO" selecionada
     E a secção "DADOS DO ESTABELECIMENTO" estiver expandida
     Então os seguintes dados devem ser exibidos:
-      | Numero_ec  | Status | Bloqueio | Dt_abertura | Razao_social                | Cnpj               | Mcc  | Ramo   |
-      | 2000463023 | Ativo  | Não      | 26/01/2017  | PJ04541 - CONVIVENCIA SITE2 | 99.906.385/0002-07 | 7011 | Motéis |
+      | Numero_ec  | Status | Bloqueio | Dt_abertura | Razao_social                | Cnpj               | Ramo          |
+      | 2000463023 | Ativo  | Não      | 26/01/2017  | PJ04541 - CONVIVENCIA SITE2 | 99.906.385/0002-07 | 7011 - Motéis |
 
     Exemplos:
       | EcCpfEmail | usuario    | senha  |

@@ -89,23 +89,13 @@ public class MeuCadastroSteps {
             Assert.assertEquals(displayedValue.get("Dt_abertura"), meuCadastro.getDtAbertura());
             Assert.assertEquals(displayedValue.get("Razao_social"), meuCadastro.getRazaoSocial());
             Assert.assertEquals(displayedValue.get("Cnpj"), meuCadastro.getCnpj());
-            Assert.assertEquals(displayedValue.get("Mcc"), meuCadastro.getMcc());
-            Assert.assertEquals(displayedValue.get("Ramo"), meuCadastro.getRamo());
-//            System.out.println(displayedValue.get("Numero_ec"));
-//            System.out.println(displayedValue.get("Status"));
-//            System.out.println(displayedValue.get("Bloqueio"));
-//            System.out.println(displayedValue.get("Dt_abertura"));
-//            System.out.println(displayedValue.get("Razao_social"));
-//            System.out.println(displayedValue.get("Cnpj"));
-//            System.out.println(displayedValue.get("Mcc"));
-//            System.out.println(displayedValue.get("Ramo"));
+            Assert.assertEquals(displayedValue.get("Ramo"), meuCadastro.getMcc());
         }
     }
 
 
     @Então("o endereço {string} deve ser exibido")
     public void oEndereçoDeveSerExibido(String address) {
-        System.out.println(meuCadastro.getAddress() + " batata");
         Assert.assertTrue("O endereço exibido não confere com o experado", (meuCadastro.getAddress()).contains(address));
     }
 
