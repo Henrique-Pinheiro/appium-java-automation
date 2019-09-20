@@ -2,10 +2,13 @@ package io.cucumber.skeleton.support;
 
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
+
 import java.time.Duration;
 import java.util.Arrays;
+
 import static io.cucumber.skeleton.support.AppiumController.driver;
 
 public class Swipper {
@@ -22,6 +25,22 @@ public class Swipper {
         dragNDrop.addAction(finger.createPointerDown(PointerInput.MouseButton.MIDDLE.asArg()));
         dragNDrop.addAction(finger.createPointerMove(Duration.ofMillis(600),
                 PointerInput.Origin.viewport(), source.getX() / 2, source.y / 2));
+        dragNDrop.addAction(finger.createPointerUp(PointerInput.MouseButton.MIDDLE.asArg()));
+        driver.perform(Arrays.asList(dragNDrop));
+    }
+
+    public void horizontalSwiping(MobileElement element) throws Exception {
+        MobileElement slider = element;
+        Point source = slider.getLocation();
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence dragNDrop = new Sequence(finger, 1);
+        dragNDrop.addAction(finger.createPointerMove(Duration.ofMillis(0),
+                PointerInput.Origin.viewport(), source.x, source.y));
+        dragNDrop.addAction(finger.createPointerDown(PointerInput.MouseButton.MIDDLE.asArg()));
+        dragNDrop.addAction(new Pause(finger, Duration.ofMillis(600)));
+        dragNDrop.addAction(finger.createPointerMove(Duration.ofMillis(600),
+                PointerInput.Origin.viewport(),
+                source.x + 400, source.y));
         dragNDrop.addAction(finger.createPointerUp(PointerInput.MouseButton.MIDDLE.asArg()));
         driver.perform(Arrays.asList(dragNDrop));
     }

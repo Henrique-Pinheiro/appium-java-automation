@@ -1,6 +1,7 @@
 package io.cucumber.skeleton.steps;
 import cucumber.api.java.bs.A;
 import cucumber.api.java.pt.Dado;
+import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Quando;
 import io.cucumber.skeleton.support.AppiumStart;
 import io.cucumber.skeleton.support.Devices;
@@ -36,4 +37,5 @@ public class BaseStepdefs {
     public void esseStepVaiFalhar() {
         Assert.assertEquals("batata", "mandioca");
     }
+
 }

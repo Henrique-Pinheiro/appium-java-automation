@@ -5,7 +5,7 @@ Funcionalidade: Alteração de Senha - Area Logada
   Contexto:
     Dado que eu estou usando o aparelho "Emulator"
 
-  @servico
+  @done
   Esquema do Cenário: Função trocar senha - Não exibida
     Dado que eu realize Login informando o Ec ou CPF ou Email <EcCpfEmail>, o usuário, opcional, <usuario> e a senha <senha>
     E selecionar a opção Meu Cadastro no Menu Lateral
@@ -18,7 +18,7 @@ Funcionalidade: Alteração de Senha - Area Logada
       | EcCpfEmail | usuario    | senha        |
       | 2006095565 | 2006095565 | s@2006095565 |
 
-  @servico
+  @done
   Esquema do Cenário: Função alterar senha - Alteração Valida
     Dado que eu realize Login informando o Ec ou CPF ou Email <EcCpfEmail>, o usuário, opcional, <usuario> e a senha <senha>
     E selecionar a opção Meu Cadastro no Menu Lateral
@@ -33,7 +33,7 @@ Funcionalidade: Alteração de Senha - Area Logada
       | EcCpfEmail     | usuario | senha  | nova_senha |
       | 005.376.283-55 |         | 123456 | 123456     |
 
-  @servico
+  @done
   Esquema do Cenário: Função alterar senha - Alteração Invalida
     Dado que eu realize Login informando o Ec ou CPF ou Email <EcCpfEmail>, o usuário, opcional, <usuario> e a senha <senha>
     E selecionar a opção Meu Cadastro no Menu Lateral
