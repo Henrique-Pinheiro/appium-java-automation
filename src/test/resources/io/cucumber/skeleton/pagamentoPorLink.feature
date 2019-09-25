@@ -6,7 +6,7 @@ Funcionalidade: Pagamento por Link - APPN-1077
   Contexto:
     Dado que eu estou usando o aparelho "Emulator"
 
-  @done
+  @ignore
   Esquema do Cenário: Tela pagamento por link com usuário não elegivel
     Dado que eu realize Login informando o Ec ou CPF ou Email <EcCpfEmail>, o usuário, opcional, <usuario> e a senha <senha>
     Quando eu selecionar a opção Pagamento por Link no Menu Lateral
@@ -17,7 +17,7 @@ Funcionalidade: Pagamento por Link - APPN-1077
       | EcCpfEmail | usuario    | senha        |
       | 2006005264 | 2006095565 | s@2006095565 |
 
-  @done
+  @ignore
   Esquema do Cenário: Tela pagamento por Link com usuário elegivel - Sem links gerados
     Dado que eu realize login informando o Ec <EC>, o usuário, <usuario> e a senha <senha>
     E eu selecionar a opção Pagamento por Link no Menu Lateral
@@ -29,7 +29,7 @@ Funcionalidade: Pagamento por Link - APPN-1077
       | EC         | usuario    | senha  |
       | 2000463023 | 2000463023 | 123456 |
 
-  @done
+  @ignore
   Esquema do Cenário: Validar os limites de valores da tela de criação de links
     Dado que eu realize login informando o Ec <EC>, o usuário, <usuario> e a senha <senha>
     E eu selecionar a opção Pagamento por Link no Menu Lateral
@@ -46,7 +46,7 @@ Funcionalidade: Pagamento por Link - APPN-1077
       | EC         | usuario    | senha  |
       | 2000463023 | 2000463023 | 123456 |
 
-  @done
+  @ignore
   Esquema do Cenário: Criar link utilizando os botões de valores
     Dado que eu realize login informando o Ec <EC>, o usuário, <usuario> e a senha <senha>
     E eu selecionar a opção Pagamento por Link no Menu Lateral
@@ -62,7 +62,7 @@ Funcionalidade: Pagamento por Link - APPN-1077
       | EC         | usuario    | senha  |
       | 2000463023 | 2000463023 | 123456 |
 
-  @done
+  @ignore
   Esquema do Cenário: Criar e Consultar Links na area de Últimos links ativos
     Dado que eu realize login informando o Ec <EC>, o usuário, <usuario> e a senha <senha>
     E eu selecionar a opção Pagamento por Link no Menu Lateral
@@ -76,7 +76,7 @@ Funcionalidade: Pagamento por Link - APPN-1077
       | EC         | usuario    | senha  | nome_link            | valor_link |
       | 2000463023 | 2000463023 | 123456 | Produto Links Ativos | 1500.00    |
 
-  @done
+  @ignore
   Esquema do Cenário: Criar e Consultar Links na tela Todos os links ativos exibindo seus detalhes
     Dado que eu realize login informando o Ec <EC>, o usuário, <usuario> e a senha <senha>
     E eu selecionar a opção Pagamento por Link no Menu Lateral
@@ -91,7 +91,7 @@ Funcionalidade: Pagamento por Link - APPN-1077
       | EC         | usuario    | senha  | nome_link              | valor_link |
       | 2000463023 | 2000463023 | 123456 | Produto Todos os Links | 1500.00    |
 
-  @done
+  @ignore
   Esquema do Cenário: Botão Fechar Detalhes do Link
     Dado que eu realize login informando o Ec <EC>, o usuário, <usuario> e a senha <senha>
     E o usuário possua somente um link gerado
@@ -105,7 +105,7 @@ Funcionalidade: Pagamento por Link - APPN-1077
       | EC         | usuario    | senha  |
       | 2000463023 | 2000463023 | 123456 |
 
-  @done
+  @ignore
   Esquema do Cenário: Excluir Link
     Dado que eu realize login informando o Ec <EC>, o usuário, <usuario> e a senha <senha>
     E o usuário possua somente um link gerado

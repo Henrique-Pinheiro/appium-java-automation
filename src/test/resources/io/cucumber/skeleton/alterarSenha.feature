@@ -5,7 +5,7 @@ Funcionalidade: Alteração de Senha - Area Logada
   Contexto:
     Dado que eu estou usando o aparelho "Emulator"
 
-  @done
+  @deprecated
   Esquema do Cenário: Função trocar senha - Não exibida
     Dado que eu realize Login informando o Ec ou CPF ou Email <EcCpfEmail>, o usuário, opcional, <usuario> e a senha <senha>
     E selecionar a opção Meu Cadastro no Menu Lateral
