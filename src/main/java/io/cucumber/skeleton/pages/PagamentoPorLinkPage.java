@@ -153,7 +153,6 @@ public class PagamentoPorLinkPage {
         return pagamentoPorLinkTitle.isDisplayed();
     }
 
-
     public boolean checkNovoLink() {
         return btnCriarNovoLink.isDisplayed();
     }

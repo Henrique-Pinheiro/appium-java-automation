@@ -93,4 +93,13 @@ public class LoginSteps {
         oCampoSenhaCom(senha);
     }
 
+    @Quando("eu estiver logado com o EC {string}, usuário {string} e senha {string}")
+    public void euEstiverLogadoComOECUsuárioESenha(String ec, String user, String pass) {
+        baseSteps.euEstiverNaTelaDeLogin();
+        preenchoOCampoDeLoginComOEC(ec);
+        euSelecionarOBotãoProximo();
+        preencherOCampoUsuárioCom(user);
+        oCampoSenhaCom(pass);
+        aoPressionarOBotãoEntrarATelaHomeDeveSerExibida();
+    }
 }
