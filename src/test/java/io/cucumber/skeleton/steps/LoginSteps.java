@@ -11,7 +11,7 @@ public class LoginSteps {
 
     private BaseStepdefs baseSteps = new BaseStepdefs();
     private BasePage basePage = new BasePage();
-    private LoginPage androidLogin = new LoginPage();
+    private LoginPage loginPage = new LoginPage();
     private HomePage homePage = new HomePage();
     private HamburguerMenu hbgMenu = new HamburguerMenu();
     private String user = "";
@@ -49,18 +49,18 @@ public class LoginSteps {
 
     @E("preencho o campo de Login com um email não cadastrado")
     public void preenchoOCampoDeLoginComUmEmailNãoCadastrado() {
-        androidLogin.fillEmail();
+        loginPage.fillEmail();
     }
 
     @Então("ao pressionar o botão Entrar, a mensagem {string} deve ser exibida")
     public void aMensagemDeveSerExibida(String msg) {
         basePage.clickBtnLogin();
-        Assert.assertEquals(msg, androidLogin.getErrorMsgTxt());
+        Assert.assertEquals(msg, loginPage.getErrorMsgTxt());
     }
 
     @E("preencho o campo de Login com um CPF não cadastrado")
     public void preenchoOCampoDeLoginComUmCPFNãoCadastrado() {
-        androidLogin.fillCpf();
+        loginPage.fillCpf();
     }
 
     @Quando("eu realizar Login informando (.*), (.*), (.*) com a opção Salvar Dados selecionada")
@@ -69,7 +69,7 @@ public class LoginSteps {
         euSelecionarOBotãoProximo();
         preencherOCampoUsuárioCom(user);
         oCampoSenhaCom(senha);
-        androidLogin.checkSalvarDados();
+        loginPage.checkSalvarDados();
         aoPressionarOBotãoEntrarATelaHomeDeveSerExibida();
     }
 
@@ -78,9 +78,9 @@ public class LoginSteps {
         HamburguerMenu hbgMenu = new HamburguerMenu();
         hbgMenu.sair();
         if (ec.length() > 0) {
-            Assert.assertEquals(ec, androidLogin.getECSalvo());
+            Assert.assertEquals(ec, loginPage.getECSalvo());
         }
-        Assert.assertEquals(user, androidLogin.getUserSalvo());
+        Assert.assertEquals(user, loginPage.getUserSalvo());
 
     }
 
