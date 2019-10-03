@@ -12,6 +12,9 @@ import static io.cucumber.skeleton.support.AppiumController.driver;
 
 public class Hooks {
 
+
+
+    // Atualmente a conexão não estã sendo encerrada ao finalizar o cenario //
     //============Precisa fazer rodar===========================//
     @After
     public void afterScenarioFinish(Scenario scenario) throws IOException {

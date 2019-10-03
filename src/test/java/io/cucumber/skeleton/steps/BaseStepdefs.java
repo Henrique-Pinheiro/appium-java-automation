@@ -11,6 +11,8 @@ public class BaseStepdefs {
     private Devices devices = new Devices();
     private BasePage basePage;
 
+
+    //Esse step sempre  deve rodar uma vez que ele faz a conexão com o Appium =)
     @Dado("que eu estou usando o aparelho {string}")
     public void queEuEstouUsandoOAparelho(String device) {
         AppiumStart appiumStart = new AppiumStart(device);

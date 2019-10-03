@@ -60,49 +60,49 @@ public class BasePage {
 
     public boolean checkLoginPage() {
         driver.hideKeyboard();
-//        MobileElement btnJump = (MobileElement) driver.findElementById("btnJump");
+
         if (btnJump.isDisplayed()) {
             btnJump.click();
         }
-//        MobileElement txtLoginLabel = (MobileElement) driver.findElementById("textLoginLabel");
+
         return txtLoginLabel.isDisplayed();
     }
 
     public boolean checkLoginPageAgain() {
         driver.hideKeyboard();
-//        MobileElement txtLoginLabel = (MobileElement) driver.findElementById("textLoginLabel");
+
         return txtLoginLabel.isDisplayed();
 
     }
 
     public void fillFirstLoginField(String emailEcOrCpf) {
-//        MobileElement firstTxtField = (MobileElement) driver.findElementById("textInputEditNewLogin");
+
         firstTxtField.setValue(emailEcOrCpf);
         driver.hideKeyboard();
     }
 
     public void clickBtnPoximo() {
         driver.hideKeyboard();
-//        MobileElement btnProximo = (MobileElement) driver.findElementById("buttonLoginNext");
+
         btnProximo.click();
     }
 
     public void clickBtnLogin() {
         driver.hideKeyboard();
-//        MobileElement btnLogin = (MobileElement) driver.findElementById("buttonNewLoginUserEnter");
+
         btnLogin.click();
     }
 
     public void fillUser(String user) {
         if (!(user.isEmpty())) {
-//            MobileElement userField = (MobileElement) driver.findElementById("textInputEditLoginUsername");
+
             userField.setValue(user);
             driver.hideKeyboard();
         }
     }
 
     public void fillPass(String password) {
-//        MobileElement passField = (MobileElement) driver.findElementById("textInputEditLoginPassword");
+
         passField.setValue(password);
         driver.hideKeyboard();
     }
