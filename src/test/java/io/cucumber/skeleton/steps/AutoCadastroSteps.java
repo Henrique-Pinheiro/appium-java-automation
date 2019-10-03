@@ -14,7 +14,7 @@ public class AutoCadastroSteps {
 
     public BasePage basePage = new BasePage();
     public LoginPage loginPage = new LoginPage();
-    public AutoCadastroPage androidCadastro = new AutoCadastroPage();
+    public AutoCadastroPage autoCadastroPage = new AutoCadastroPage();
 
     @E("eu selecionar o botão Criar Usuario")
     public void euSelecionarOBotãoAutoCadastro() {
@@ -23,61 +23,60 @@ public class AutoCadastroSteps {
 
     @Então("a tela do Auto Cadastro deve ser exibida")
     public void aTelaDoAutoCadastroDeveSerExibida() {
-        Assert.assertEquals("Criar usuário", androidCadastro.getPageTitle());
+        Assert.assertEquals("Criar usuário", autoCadastroPage.getPageTitle());
     }
 
     @Dado("que eu deseje realizar um cadastro do tipo (.*) utilizando o EC (.*)")
     public void queEuDesejeRealizarUmCadastroDoTipoTipo_cadastroUtilizandoOECEC(String tipoCadastro, String ec) {
-        androidCadastro.setTipoCadastro(tipoCadastro);
-        androidCadastro.setEc(ec);
+        autoCadastroPage.setTipoCadastro(tipoCadastro);
+        autoCadastroPage.setEc(ec);
     }
 
     @Dado("que eu deseje realizar um cadastro utilizando o EC (.*)")
     public void queEuDesejeRealizarUmCadastroUtilizandoOECEC(String ec) {
-        androidCadastro.setEc(ec);
+        autoCadastroPage.setEc(ec);
     }
 
     @E("que eu preencha os dados cadastrais")
     public void queEuPreenchaOsDadosCadastrais() {
-//        androidCadastro.setNumEmail(numEmail);
-        androidCadastro.preencherDadosCadastrais();
+        autoCadastroPage.preencherDadosCadastrais();
     }
 
     @Quando("eu preencher os dados da conta bancaria, tipo de pessoa (.*), banco (.*), tipo de conta (.*), agencia (.*), numero da conta (.*) e digito (.*)")
     public void euPreencherOsDadosDaContaBancariaTipoDePessoaTipo_pessoaBancoBancoTipoDeContaTipo_contaAgenciaAgenciaNumeroDaContaN_contaEDigitoDigito(String tipoPessoa, String banco, String tipoConta, String agencia, String nConta, String digitoConta) throws InterruptedException {
-        androidCadastro.preencherDadosBancarios(tipoPessoa, banco, tipoConta, agencia, nConta, digitoConta);
+        autoCadastroPage.preencherDadosBancarios(tipoPessoa, banco, tipoConta, agencia, nConta, digitoConta);
     }
 
     @E("selecionar o botão De acordo")
     public void selecionarOBotãoDeAcordo() throws InterruptedException {
-        androidCadastro.deAcordo();
+        autoCadastroPage.deAcordo();
     }
 
     @E("selecionar o botão Confirmar")
     public void selecionarOBotãoConfirmar() {
-        androidCadastro.pressBtnConfirmar();
+        autoCadastroPage.pressBtnConfirmar();
     }
 
     @Então("eu devo informar o nome de usuário desejado")
     public void euDevoInformarONomeDeUsuárioDesejado() {
-        androidCadastro.preencherUsuario();
+        autoCadastroPage.preencherUsuario();
     }
 
 
     @E("ao pressionar o botão Ok a tela de confirmação de email deve ser exibida")
     public void aoPressionarOBotãoContinuarATelaDeConfirmaçãoDeEmailDeveSerExibida() {
-        androidCadastro.pressBtnOk();
-        androidCadastro.verificaTelaEmail();
+        autoCadastroPage.pressBtnOk();
+        autoCadastroPage.verificaTelaEmail();
     }
 
     @E("ao pressionar o botão voltar a tela de Login deve ser exibida")
     public void aoPressionarOBotãoVoltarATelaDeLoginDeveSerExibida() {
-        androidCadastro.pressBtnVoltar();
+        autoCadastroPage.pressBtnVoltar();
         Assert.assertTrue("A pagina de login não está sendo exibida", basePage.checkLoginPageAgain());
     }
 
     @Quando("eu preencher o numero de serie (.*) do cartão")
     public void euPreencherONumeroDeSerieNumero_serieDoCartão(String cardNumber) throws InterruptedException {
-        androidCadastro.preencherDadosCartao(cardNumber);
+        autoCadastroPage.preencherDadosCartao(cardNumber);
     }
 }

@@ -1,8 +1,6 @@
 package io.cucumber.skeleton.steps;
-import cucumber.api.java.bs.A;
-import cucumber.api.java.pt.Dado;
-import cucumber.api.java.pt.E;
-import cucumber.api.java.pt.Quando;
+
+import cucumber.api.java.pt.*;
 import io.cucumber.skeleton.support.AppiumStart;
 import io.cucumber.skeleton.support.Devices;
 import io.cucumber.skeleton.pages.BasePage;
@@ -10,14 +8,13 @@ import org.junit.Assert;
 
 public class BaseStepdefs {
 
-    private String deviceOs;
     private Devices devices = new Devices();
     private BasePage basePage;
 
     @Dado("que eu estou usando o aparelho {string}")
     public void queEuEstouUsandoOAparelho(String device) {
         AppiumStart appiumStart = new AppiumStart(device);
-        deviceOs = devices.returnDeviceOs(device.toLowerCase());
+        String deviceOs = devices.returnDeviceOs(device.toLowerCase());
         appiumStart.beforeScenarioStart();
         basePage = new BasePage();
     }
